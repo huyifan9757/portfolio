@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>目光的島｜胡藝凡 文字作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --serif:'Noto Serif TC',serif;
+  --sans:'Noto Sans TC',sans-serif;
+  --white:#FFFFFF;
+  --off-white:#E8E4DC;
+  --gray:#A09890;
+  --dark:#0A0A0A;
+}
+html{scroll-behavior:smooth;}
+body{background:#0A0A0A;color:var(--white);font-family:var(--sans);font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.7);backdrop-filter:blur(10px);}
+.nav-brand{font-family:var(--serif);font-size:0.9rem;letter-spacing:0.1em;color:var(--white);text-decoration:none;opacity:0.9;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:0.72rem;letter-spacing:0.1em;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+@media(max-width:768px){.nav-links{display:none;}}
+
+/* SECTIONS */
+.full-section{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
+.bg-photo{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;filter:grayscale(100%);}
+.bg-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.45);}
+.section-content{position:relative;z-index:2;width:100%;padding:7rem 4rem 4rem;}
+
+/* PIXEL CANVAS */
+.pixel-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
+
+/* COVER */
+#cover{min-height:100vh;}
+.cover-main-title{position:absolute;z-index:3;top:0;left:0;right:0;bottom:0;pointer-events:none;}
+.cover-title-mokuang{position:absolute;top:4rem;left:3rem;font-family:'Gurmukhi MN',var(--serif);font-size:clamp(6rem,12vw,11rem);font-weight:700;line-height:0.9;color:white;text-shadow:4px 4px 0 #111,6px 6px 0 #333;letter-spacing:-0.02em;}
+.cover-title-deshima{position:absolute;bottom:3rem;right:3rem;font-family:'Gurmukhi MN',var(--serif);font-size:clamp(5rem,10vw,9rem);font-weight:700;line-height:0.9;color:white;text-align:right;text-shadow:4px 4px 0 #111,6px 6px 0 #333;letter-spacing:-0.02em;}
+.cover-subtitle{position:absolute;bottom:7rem;left:3.5rem;z-index:3;font-size:0.85rem;line-height:2;color:rgba(255,255,255,0.8);letter-spacing:0.02em;}
+.cover-author{position:absolute;bottom:3.5rem;right:3.5rem;z-index:3;text-align:right;}
+.cover-author-name{font-family:var(--serif);font-size:0.9rem;letter-spacing:0.08em;color:rgba(255,255,255,0.9);}
+.cover-author-sub{font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);writing-mode:vertical-rl;display:inline-block;margin-left:0.5rem;}
+
+/* CHAPTER HEADERS */
+.chapter-label{font-size:0.75rem;letter-spacing:0.15em;color:rgba(255,255,255,0.55);text-transform:none;margin-bottom:0.75rem;}
+.chapter-title-large{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(3rem,7vw,6.5rem);font-weight:700;line-height:1;color:white;text-shadow:3px 3px 0 #000;margin-bottom:1.5rem;}
+.chapter-desc{font-size:0.88rem;line-height:1.95;color:rgba(255,255,255,0.85);max-width:480px;}
+
+/* INTRO SECTION */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:8rem 4rem 5rem;}
+.intro-left p{font-family:var(--serif);font-size:0.9rem;line-height:2.1;color:rgba(255,255,255,0.88);margin-bottom:1.2em;}
+.intro-right{}
+.intro-label{font-size:0.7rem;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-bottom:1rem;border-left:2px solid rgba(255,255,255,0.3);padding-left:0.75rem;}
+.about-name{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:0.5rem;}
+.about-sub{font-size:0.78rem;color:rgba(255,255,255,0.65);margin-bottom:1.5rem;line-height:1.7;}
+.about-body{font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.75);margin-bottom:2rem;}
+.contact-block{margin-top:1rem;}
+.contact-item{font-size:0.78rem;color:rgba(255,255,255,0.65);margin-bottom:0.3rem;letter-spacing:0.03em;}
+@media(max-width:768px){.intro-grid{grid-template-columns:1fr;gap:2.5rem;padding:7rem 2rem 4rem;}}
+
+/* 目光地圖 */
+.map-content{padding:8rem 4rem 5rem;}
+.map-title{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(4rem,9vw,8rem);font-weight:700;color:white;text-shadow:4px 4px 0 #000;margin-bottom:3rem;}
+.map-list{list-style:none;}
+.map-list li{font-family:var(--serif);font-size:clamp(0.9rem,1.8vw,1.1rem);color:rgba(255,255,255,0.8);padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.12);letter-spacing:0.05em;cursor:pointer;transition:color 0.2s;}
+.map-list li:hover{color:white;}
+.map-list li a{color:inherit;text-decoration:none;}
+
+/* CONTENT SECTIONS */
+.content-section{background:#fff;padding:4rem;color:#1a1a1a;}
+.content-section + .content-section{border-top:1px solid #e0e0e0;}
+
+/* WORKS */
+.works-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:3rem;padding-bottom:1rem;border-bottom:1px solid #ddd;}
+.works-chapter-name{font-family:'Gurmukhi MN',var(--serif);font-size:1.4rem;font-weight:500;color:#1a1a1a;}
+.works-chapter-type{font-size:0.75rem;letter-spacing:0.1em;color:#888;}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
+.work-card{background:#f8f8f8;border:1px solid #e0e0e0;padding:2rem;transition:border-color 0.2s;color:#1a1a1a;}
+.work-card:hover{border-color:#999;}
+.work-card-type{font-size:0.68rem;letter-spacing:0.12em;color:#888;margin-bottom:0.75rem;}
+.work-card-title{font-family:'Gurmukhi MN',var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:1rem;line-height:1.4;color:#1a1a1a;}
+.work-card-body{font-size:0.82rem;line-height:1.95;color:#333;margin-bottom:1.25rem;}
+.work-card-guide{margin-top:1rem;padding:1rem;background:#f0f0f0;border-left:2px solid #bbb;}
+.work-card-guide-label{font-size:0.65rem;letter-spacing:0.1em;color:#888;margin-bottom:0.5rem;}
+.work-card-guide-text{font-family:var(--serif);font-size:0.82rem;font-style:italic;line-height:1.85;color:#444;}
+.work-card-excerpt{font-family:var(--serif);font-size:0.82rem;line-height:2;color:#444;border-left:2px solid #ccc;padding-left:1rem;margin:1rem 0;}
+.work-link{display:inline-block;font-size:0.78rem;letter-spacing:0.06em;color:#333;text-decoration:none;border-bottom:1px solid #aaa;padding-bottom:0.1rem;margin-top:0.75rem;transition:color 0.2s,border-color 0.2s;cursor:pointer;}
+.work-link:hover{color:#000;border-color:#000;}
+.work-img{width:100%;height:200px;object-fit:cover;margin-bottom:1.25rem;filter:grayscale(30%);}
+.work-stats{display:flex;gap:1.5rem;margin-bottom:1rem;}
+.work-stat{text-align:center;}
+.work-stat-num{font-family:var(--serif);font-size:1.3rem;font-weight:300;display:block;}
+.work-stat-label{font-size:0.65rem;letter-spacing:0.08em;color:rgba(255,255,255,0.45);}
+.feedback-quote{font-family:var(--serif);font-size:0.88rem;font-style:italic;line-height:1.9;color:#333;border-left:2px solid #ccc;padding-left:1.25rem;margin:1.5rem 0;}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e0e0e0;margin-bottom:3rem;}
+.stat-block{background:#fff;padding:1.5rem;text-align:center;}
+.stat-block .num{font-family:'Gurmukhi MN',var(--serif);font-size:1.8rem;font-weight:300;display:block;margin-bottom:0.3rem;color:#1a1a1a;}
+.stat-block .lbl{font-size:0.68rem;letter-spacing:0.08em;color:#888;}
+@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+
+/* 隙 SECTION */
+.xi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:3rem;}
+.xi-photo{width:100%;aspect-ratio:3/2;object-fit:cover;filter:grayscale(20%);}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
+
+/* TRIFOLD DEMO */
+.trifold-wrap{margin:2rem 0;}
+.trifold-btns{display:flex;gap:8px;margin-bottom:1rem;}
+.trifold-btn{padding:5px 14px;font-size:0.72rem;letter-spacing:0.06em;cursor:pointer;border:1px solid #ccc;background:#fff;color:#333;font-family:var(--sans);transition:all 0.2s;}
+.trifold-btn.active,.trifold-btn:hover{background:#1a1a1a;color:white;border-color:#1a1a1a;}
+.trifold-stage{background:#f0f0f0;padding:1.5rem;display:flex;justify-content:center;overflow:hidden;}
+.trifold-dm{display:flex;transition:all 0.4s ease;}
+.dm-panel{height:160px;width:120px;overflow:hidden;flex-shrink:0;position:relative;}
+.dm-panel-inner{width:360px;height:160px;position:absolute;top:0;}
+.dm-fold-line{width:1px;background:rgba(255,255,255,0.2);align-self:stretch;flex-shrink:0;}
+.trifold-label{text-align:center;font-size:0.68rem;color:#888;margin-top:0.75rem;letter-spacing:0.06em;}
+
+/* SECTION DIVIDER */
+.section-divider{height:1px;background:rgba(255,255,255,0.08);margin:0;}
+
+/* FOOTER */
+footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(255,255,255,0.7);}
+.footer-contact{text-align:right;}
+.footer-contact p{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;letter-spacing:0.04em;}
+@media(max-width:600px){footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem;}.footer-contact{text-align:center;}}
+
+/* EXPAND/COLLAPSE */
+.expandable{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid #e0e0e0;}
+.expandable.open{display:block;}
+.toggle-btn{display:inline-block;font-size:0.78rem;color:#333;border:none;border-bottom:1px solid #aaa;background:none;padding:0 0 2px 0;margin-top:0.75rem;cursor:pointer;font-family:inherit;letter-spacing:0.04em;}
+.toggle-btn:hover{color:#000;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#cover" class="nav-brand">目光的島</a>
+  <ul class="nav-links">
+    <li><a href="#zhanzhao">沿岸步道</a></li>
+    <li><a href="#wanan">環島海岸線</a></li>
+    <li><a href="#bolulan">目光碎浪</a></li>
+    <li><a href="#xinwen">公共地景</a></li>
+    <li><a href="#qiuling">丘陵之境</a></li>
+    <li><a href="#shanjin">山脊視野</a></li>
+    <li><a href="#xi">隙</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════════════ -->
+<!-- COVER                                     -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="cover">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/001%E5%B0%81%E9%9D%A2%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.35);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/001%E5%B0%81%E9%9D%A2%E5%83%8F%E7%B4%A0.png" alt="">
+
+  <div class="cover-main-title">
+    <div class="cover-title-mokuang">目<br>光</div>
+    <div class="cover-title-deshima">的<br>島</div>
+  </div>
+
+  <div class="cover-subtitle">
+    如果每一次注視<br>
+    都會產生一個單位的 實體目光<br>
+    我們一天所投注的目光疊加起來<br>
+    是否可以蓋成一座島嶼？
+  </div>
+
+  <div class="cover-author">
+    <span class="cover-author-name">胡藝凡</span>
+    <span class="cover-author-sub">文字作品集</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- INTRO                                     -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="intro">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/002%E4%BB%8B%E7%B4%B9%E9%A0%81%E4%B8%80%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.55);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/002%E4%BB%8B%E7%B4%B9%E9%A0%81%E4%B8%80%E5%83%8F%E7%B4%A0.png" alt="">
+
+  <div class="intro-grid" style="position:relative;z-index:2;width:100%;">
+    <div class="intro-left">
+      <p>在這片島嶼上<br>所見之物形塑了我們</p>
+      <p>我們選擇投注目光的地方<br>傳遞了許多訊息<br>而這些訊息<br>不僅在我們的潛意識中留下痕跡<br>也逐漸影響著我們的思考方式、意念<br>以及未來的每一個選擇</p>
+      <p>於是我們的「目光所及之處」<br>最終也就成為了我們的一部分</p>
+      <p>這本作品集正是我對「目光」的主動定義</p>
+      <br>
+      <p style="font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.7);">作為一位文字工作者，我深知每一個被傳遞的內容都具備潛移默化的影響力，而如何呈現這些訊息將會影響每一位觀者，因此我不僅關注人們的注視之處，更有意識地引導目光，細心地選擇字句、設計每一處細節，並思考如何與讀者的目光產生交集、回應讀者的注視，期許自己能以清醒而溫柔的態度，構築一片溫暖而真摯的世界。</p>
+      <br>
+      <p style="font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.7);">這是我過往的工作記錄，一段關於引導、選擇和分享的旅程，其中包含許多不同類型的文字作品，我期望讓這座「島嶼」成為溫暖和善意的傳遞之地，讓我們的目光所及之處，都充滿意義。</p>
+    </div>
+    <div class="intro-right">
+      <div class="intro-label">關於我</div>
+      <div class="about-name">胡藝凡</div>
+      <div class="about-sub">深耕文字超過10年｜政大廣電系畢業</div>
+      <div class="about-body">對於文字的各個領域皆有涉略，擅長撰寫廣告文案、社群貼文、專訪、新聞稿、企劃書、講稿等。擅長洞悉與詮釋，對文字敏銳且富有想像力，能夠協助客戶將想法轉化為具感染力的文案，從文字中建構出氛圍及情感。</div>
+      <div class="contact-block">
+        <div class="intro-label">聯繫我</div>
+        <div class="contact-item">Tel: 0975660349</div>
+        <div class="contact-item">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4ccd1ddcdc2c5ca9d939193e4c3c9c5cdc88ac7cbc9">[email&#160;protected]</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 目光地圖                                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="map">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.5);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%83%8F%E7%B4%A0.png" alt="">
+
+  <div class="map-content" style="position:relative;z-index:2;">
+    <div class="map-title">目光<br>地圖</div>
+    <ul class="map-list">
+      <li><a href="#zhanzhao">沿岸步道｜YouTube 講稿</a></li>
+      <li><a href="#wanan">環島海岸線｜文案</a></li>
+      <li><a href="#bolulan">目光碎浪｜社群貼文</a></li>
+      <li><a href="#xinwen">公共地景藝術｜新聞稿</a></li>
+      <li><a href="#qiuling">丘陵之境｜雜誌與專訪</a></li>
+      <li><a href="#shanjin">山脊視野｜宣傳跨頁設計</a></li>
+        <li><a href="#xi">隙</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 沿岸步道 HEADER                          -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="zhanzhao">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/005%E6%96%87%E6%A1%88%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="section-content" style="position:relative;z-index:2;">
+    <div class="chapter-label">沿岸步道</div>
+    <h2 class="chapter-title-large">YouTube<br>講稿</h2>
+    <p class="chapter-desc">YouTube 講稿像一條沿岸步道。標題是入口的風景，讓人好奇、想往下探索；而步道上的每片地磚，都是我精心設計與整理的資訊，讓人走起來節奏自然、毫不費力，不知不覺走完全程，用最輕鬆的方式，接收到最有幫助的訊息。從短篇文案到長篇腳本，我撰寫的不僅是文字，而是觀看體驗本身。</p>
+    <br>
+    <p class="chapter-desc" style="color:rgba(255,255,255,0.65);font-size:0.8rem;">在決定「怎麼寫」之前，我習慣先問「為什麼要這樣寫」。在編碼的時候，同時模擬解碼的過程，預測讀者在哪個地方會卡住、在哪個地方需要一個畫面來銜接。在資訊和讀者之間，我習慣先成為那個讀者。</p>
+  </div>
+</section>
+
+<!-- 沿岸步道 CONTENT -->
+<div class="content-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">沿岸步道</span>
+      <span class="works-chapter-type">合作類型：靈異故事、懸疑案件｜2025.09 至今</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-block"><span class="num">108萬+</span><span class="lbl">總觀看次數</span></div>
+      <div class="stat-block"><span class="num">20篇</span><span class="lbl">已上片講稿</span></div>
+      <div class="stat-block"><span class="num">5萬</span><span class="lbl">平均每支觀看</span></div>
+      <div class="stat-block"><span class="num">11萬</span><span class="lbl">單篇最高觀看</span></div>
+    </div>
+
+    <div class="feedback-quote">「我覺得你的敘事很流暢，果然是平常有在關注懸疑案件類型影片，我們很少遇到寫手第一次試稿的文章不需要太多修改就可以直接採用的，真的很不簡單。」</div>
+
+    <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.04em;margin-bottom:3rem;">凡影片片尾標有「一凡」，即為我撰寫的講稿。</p>
+
+    <div class="works-grid" style="grid-template-columns:repeat(2,1fr);">
+
+      <!-- 石門十八王公廟 -->
+      <div class="work-card">
+        <div class="work-card-type">43,896 次觀看</div>
+        <div class="work-card-title">石門十八王公廟</div>
+        <div class="work-card-body">敘述石門十八王公廟的背景故事，及陰廟背後的信仰脈絡和歷史意義。在清代移民渡台的危險處境下，當時的一場船難與忠犬殉葬的事件，促成了十八王公廟的建立，也反映了人們對意外罹難者的憐憫，透過建廟祭祀使亡魂有所歸依。居民開始祭拜後，發現這裡有求必應，陰廟適合求偏財的說法逐漸流傳，恰好遇上大家樂風潮席捲全台，才讓這座廟成為每年香火過億的信仰中心。</div>
+        <div class="work-card-excerpt">陽廟與陰廟除了供奉的對象「是否具有神格」的不同外，陽廟一般會把屋頂挑高、讓光線可以照進整個寺廟，也會有華麗的裝飾，像是龍柱、石獅等，台階數、廟柱和窗戶數目也大多會是屬陽的奇數。而陰廟的廟簷通常都比較低、讓陽光不容易照進廟內，外觀也不會有太多華麗的裝飾，台階數、廟柱、窗戶等也都會是屬陰的偶數。通常在陽廟會選擇燒金紙，而陰廟則是可以燒銀紙，祈求的事物也會不太一樣，通常都認為陰廟適合求「偏財」。</div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">在高密度資訊中，管理敘事節奏。故事橫跨移民歷史、民俗文化、社會風潮、企業淵源，這些來自不同知識體系的資料，被整合在同一條敘事線上，每一段回答上一段引發的問題，每個知識點在觀眾剛好需要它的時機出現。</div>
+        </div>
+      </div>
+
+      <!-- 快樂斗煥坪 -->
+      <div class="work-card">
+        <div class="work-card-type">110,547 次觀看｜2天內達8萬</div>
+        <div class="work-card-title">快樂斗煥坪</div>
+        <div class="work-card-body">以一首流傳多年的當兵順口溜開場，讓觀眾先在腦海裡建立「快樂斗煥坪」的印象，然後用地名由來、軍事歷史、生活細節三個層次鋪陳背景，讓不曾當兵的人也能在心裡想像出那個空間的樣子。等觀眾對這個地方有了具體的畫面，故事才開始轉向，先用真實的人間悲劇讓「快樂」這個標籤鬆動，再帶出兩個營區內的靈異故事。</div>
+        <div class="work-card-excerpt">斗煥坪營區位於苗栗縣頭份市斗煥里199-1號，在頭份市的東側，平原與丘陵的交界處，是一片開闊而平坦的高地。「斗煥坪」這個名字從清朝就使用至今。有一種說法是，嘉慶年間，一名粵人黃祈英進入此地開發，與當地的賽夏族人往來，他後來依當地原住民習俗改名為黃斗乃，這片平地是黃斗乃與原住民交易物品的平地，因此得名「斗換坪」。當時的交易方式很特別，雙方不見面、不說話，賽夏族人會先把鹿皮或山產放在特定的平台上離開，之後漢人再依照自己衡量的價值，把等值的米糧或生活用品擺上去，如果原住民把那些物資取走，才表示這筆交易成立。</div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">開場選擇從那首順口溜切入，因為它是觀眾對斗煥坪最熟悉的認知入口。從這個共同的起點出發，再透過許多細節描述，讓觀眾能真正走進「斗煥坪」這個平常無法靠近的地方，為觀眾建立一個足以承載故事的世界。</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=IKneN7WEZS8" target="_blank" class="work-link">觀看影片 →</a>
+      </div>
+
+      <!-- 平將門 -->
+      <div class="work-card">
+        <div class="work-card-type">53,492 次觀看</div>
+        <div class="work-card-title">平將門</div>
+        <div class="work-card-body">從日本獨特的御靈信仰切入，帶出平將門的故事：一位皇室後裔因為領地遭到親族侵佔、一路被逼到舉旗反叛、自號「新皇」，最終兵敗被斬首。他的死標誌著日本權力從貴族轉移到武士階層的歷史轉折。而怨恨讓他死不瞑目，首級在京都睜眼詛咒、升空向東飛去，墜落於今日東京大手町，將門塚由此而來。此後將門塚至今仍屹立在東京商業核心，地價高達40億日圓，寸土寸金卻無人敢動。</div>
+        <div class="work-card-excerpt">然而平將門「反叛天皇」的怨靈身分，卻始終是皇室心中難以平息的陰影。尤其這座首塚的位置，恰好就在皇居東側，是一個極為敏感、核心的地帶。明治維新後，天皇重新掌握政權，政府從京都遷都江戶，並改名東京。據說明治政府在規劃東京鐵道路網時，故意用「JR山手線」以環狀路線圍繞整座城市，形成一道巨大的「鐵之結界」，象徵著再次「斬斷」將門的身首，讓這位武士首領再也無法凝聚力量起身復仇。</div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">介紹平將門這個人物之前，先處理了「御靈信仰」的背景，我在背後思考的是：觀眾要認識平將門這個人，需要先具備哪些認知？御靈信仰讓平將門死後持續有影響力——德川家康以他的首塚為中心佈下北斗七星結界，明治政府對他的首塚如履薄冰，不敢輕舉妄動；而平將門的故事，反過來也不斷強化了御靈信仰在日本文化中的份量。把兩者放在一起，才能看見彼此的全貌。</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=QJ1XZleNZME" target="_blank" class="work-link">觀看影片 →</a>
+      </div>
+
+      <!-- 段氏日玲 -->
+      <div class="work-card">
+        <div class="work-card-type">18,365 次觀看</div>
+        <div class="work-card-title">段氏日玲</div>
+        <div class="work-card-body">從一個瘦得幾乎不成人形的越南新娘被路人發現送醫，帶出段氏日玲長達七個月以上的受虐遭遇、事件緣由和判決結果等，並往外延伸至跨國婚姻的結構性問題：當婚姻被工具化，新移民配偶被視為交易物件，一個自豪於民主與人權的國家，是否真的讓每一個新住民都能被平等對待？</div>
+        <div class="work-card-excerpt">檢察官稱此案為「台灣之恥」，或許這句話並非僅僅指向施虐者的殘酷行為，而更像是一面鏡子，映照出當時的社會盲點。在90年代，隨著政府大力推動南向政策，大批台資湧入東南亞，經濟往來日益頻繁，這樣的背景也間接促成了跨國婚姻的興盛。然而當婚姻被工具化、商品化，新移民配偶，往往被視為婚姻市場中的「交易物件」，而非一個具備完整人格與尊嚴的生命。段氏日玲的遭遇或許並非毫無徵兆的意外，而是社會漠視與偏見堆疊下的結果。</div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">面對段氏日玲的遭遇，觀眾最直接的反應往往是憤怒與悲傷，然而我覺得停在這裡還不夠，因此把視角從單一個案往外拉，去問「這個社會發生了什麼事」，試著從個案去看見結構性的問題。在資料處理上，除了網路報導外，我也查詢了判決書，裡面的許多細節都是二手報導難以完整呈現的內容。在處理複雜事件時，我習慣回到最原始的資料來源，確保敘事的真實性。</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=4nZS949ygTA" target="_blank" class="work-link">觀看影片 →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 環島海岸線 HEADER                        -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="wanan">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/005%E6%96%87%E6%A1%88%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/005%E6%96%87%E6%A1%88%E5%83%8F%E7%B4%A0png.png" alt="">
+  <div class="section-content" style="position:relative;z-index:2;">
+    <div class="chapter-label">文案</div>
+    <h2 class="chapter-title-large">環島<br>海岸線</h2>
+    <p class="chapter-desc">文案如同環繞整座島嶼的海岸線，有多樣化的風光。對應著不同的產品，文案可以有各式各樣的可能性、能夠觸動不同的客戶群。我認為好的文案不僅能展現產品的特色、魅力與調性，更能為客戶提供了解產品的契機，幫助客戶走向產品。</p>
+  </div>
+</section>
+
+<!-- 環島海岸線 CONTENT -->
+<div class="content-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">環島海岸線</span>
+      <span class="works-chapter-type">文案</span>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">線上課程頁面文案</div>
+      <div class="work-card-title">《彭星凱論設計｜改變觀看視野的思考與實作》</div>
+      <div class="work-card-body">
+        <strong style="display:block;margin-bottom:0.6rem;color:#555;font-size:0.8rem;">六句Slogan介紹課程特色</strong>
+        ・業界最頂標製作規格<br>
+        ・重現藝術學校氛圍，打破線上距離感<br>
+        ・突破創作瓶頸，適合所有人的設計課<br>
+        ・不被工具侷限，掌握核心視覺語言<br>
+        ・四位產業夥伴訪談，一窺設計工作場景<br>
+        ・理解抽象，培養鑒賞力
+      </div>
+      <div class="work-card-body">
+        <strong style="display:block;margin-bottom:0.5rem;color:#555;font-size:0.8rem;">課程介紹</strong>
+        本課程彙整彭星凱設計師20年工作與教學經驗，從視覺風格、商業品牌與文化案例解析，配合豐富實作與新穎的思考方法，訓練扎實的審美鑑賞、設計邏輯和策略能力。並引導學員探索個人獨有的視覺語言，在生活中實踐，讓設計成為表達自我、與世界對話的途徑。
+      </div>
+      <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看課程章節介紹 ↓'">查看課程章節介紹 ↓</button>
+      <div class="expandable">
+        <div class="work-card-body" style="margin-top:1rem;">
+          <strong>第一章《改變觀看視野的設計思考》</strong><br><br>
+          1.圖形設計的概念——風格的歷史與運用：分析國際百年間經典設計，釐清設計的形式與歷史目的。以百年間的經典設計作品，分析從現代、後現代到當代的設計發展潮流及整體氛圍，建構設計時所需要的背景知識，理解設計能成為一項專業的發展基礎、更清晰地看見設計在社會上的意義與本質，包含設計如何回應歷史、形塑世界的觀看方式，及凝聚人的共識。<br><br>
+          2.創作者意志——設計可以是創作嗎？獨特的設計，來自對生活獨特的觀點，建構與眾不同的設計心法。國際品牌削弱設計的創作性以因應跨國市場的多元文化，而台灣品牌面對小眾市場，設計師個人的創作意志，便能很好地為品牌帶來差異化。<br><br>
+          <strong>第二章・上部《讓人想看的版面實作》</strong><br><br>
+          1.看見形狀——從生活環境採樣視覺元素：從生活中觀察與感受，以新方法獲取隨機性的造型靈感。設計師對形狀進行的每一個動作都具有意義，透過實務作品分享，理解設計師如何將抽象的認知聚焦為特定形狀，為詮釋主題創造出不同風格與氣質的造型，刺激觀者感受內容。<br><br>
+          <strong>講師設計作品介紹 節錄</strong><br><br>
+          《物起源於黑，源於虛無》以作者、編輯、設計的多重身份，模糊藝術與設計的界線，封面以手工絹印自白貫穿整體精神。《女兒》書籍透過女體的柔美讓人心生嚮往，抽離人的性格和情慾，呈現神性。《我們一無所有》書籍以抽象圖形表現戰爭的荒蕪，拆下書腰瞬間形成纖細易碎的衝擊。《復仇時代》專輯以英國著名畫作結合3D繪圖，古典的端莊修飾黑金屬音樂的躁動。《台灣啤酒 金牌世大運紀念瓶》於動態中不動，展現安定力量，詮釋運動員從訓練到參賽的精神。《台灣啤酒 春綠瓶身》360度全面向罐身設計，以文學呼應設計、以文字作為主體，呈現剛好的醉度，剛好的春綠。
+        </div>
+      </div>
+      <div class="work-card-guide" style="margin-top:1.5rem;">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">以精煉的文字切中消費者痛點，讓消費者迅速瞭解課程價值。善於擷取作品中的精神與亮點，以2-3句話凝鍊作品當中的精神及設計亮點。以分層清晰的結構介紹課程章節，讓讀者瀏覽網頁時能快速抓到整體課程重點，並進一步針對有興趣的單元閱讀。</div>
+      </div>
+    </div>
+
+    <div class="works-grid" style="grid-template-columns:repeat(2,1fr);">
+      <div class="work-card">
+        <div class="work-card-type">音樂劇劇作簡介＆海報設計</div>
+        <div class="work-card-title">《霧台的迴與疊》2024 原創音樂劇</div>
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E6%96%87%E6%A1%88%E4%BD%9C%E5%93%81%EF%BC%BF%E9%9C%A7%E5%8F%B0%E7%9A%84%E8%BF%B4%E8%88%87%E7%96%8A%20%E6%B5%B7%E5%A0%B1%20Large.jpeg" alt="霧台海報" style="width:100%;margin:0.75rem 0;filter:grayscale(15%);">
+        <div class="work-card-body">刻意遺忘的記憶在心底堆疊成傷痕，壓垮了遠走他鄉的族人，他窮盡一生守著的秘密、那段被山林埋葬的過往，隨著日本人健太的來訪，一層一層被揭開。<br><br>那些被解開的結、被觸動的靈魂，又會書寫出什麼樣的故事？那片山上撐起的，是族人的智慧、是不經意被牽動的緣分，有跨世代的和解、有文化的拾回與再造，也有現代愛情故事。<br><br>在祖靈的懷抱下，那些看似無法釋懷的悲傷，終會在更巨大的愛裡和解，化作層層疊疊、迴盪於山間的餘韻。<br><br>本劇由導演林宜誠與詞曲創作楊文忻，繼音樂劇《來自山中的聲音》衛武營演出後再次攜手合作，以屏東霧台魯凱族文化為素材創作。</div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">以精煉的語言描繪故事，藉由細膩的語句帶出真摯的情感與畫面感。每句話都經過思考，力求在敘述中保持清晰與節奏感，讓觀眾好奇故事的發展，並讓情感自然地展現在文字之中。</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-type">音樂劇劇作介紹＆理念撰寫</div>
+        <div class="work-card-title">《來自山中的聲音》</div>
+        <div class="work-card-body">《來自山中的聲音》是一趟尋找自我的旅程，讓山上和都市的生活化為一種隱喻，把原住民孩子離開部落到都市求生的困境與成長，他們的衝擊、迷惘、衝突與掙扎，以及在同儕的接納之間找回自己的過程，都在劇場裡真誠地呈現。<br><br>故事從一位來到偏鄉的音樂老師開始，在逐漸失去熱情的工作與生活中，他帶著孩子請調到山上學校服務。他吸收著原民文化的內涵，也將都市的氣息帶入部落；當老師慢慢看見了原民文化中純樸的美，他帶著孩子們走出山間、參加合唱比賽。<br><br>然而在孩子們慢慢種下信心的種子時，卻也遇到了未曾想過的挫折、面臨偏鄉與城市之間無形的文化隔閡。對於功成名就的追求，主流價值觀的反噬如同洪水襲來，讓這些山上的孩子迷失。當他們開始重新探索自我的價值，尋找自我的旅程才真正開始。</div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看創作理念 ↓'">查看創作理念 ↓</button>
+        <div class="expandable">
+          <div class="work-card-body" style="margin-top:1rem;">藉由這次創作走進原民的生活之中，才發現原民生活文化裡有一種純樸的美，來自於和自然互動而累積的底蘊，如同栽種小米後等待收成的打獵時節、如同在賦予個人義務與歸屬的成年禮。對自然的敬畏、信仰和接納，都轉變成一種生生不息的傳承。<br><br>因此在這齣戲劇中，我們想透過原民的故事帶領大家發現，在每個人生命中，或多或少都會遇見的文化與價值觀碰撞，從彼此不理解，到互相學習、接納的歷程。<br><br>希望這份由全體劇組共同傳達的重要盼望，能成為一種行動，讓社會中所有的個人與群體之間，在相互的關懷中找到共構希望的橋樑。願即將呈現的一切，能成為劇場裡的一道光，溫暖每個人的生命。</div>
+        </div>
+        <div class="work-card-guide">
+          <div class="work-card-guide-label">目光的導引</div>
+          <div class="work-card-guide-text">以條理分明的敘述方式，真誠地呈現出劇作的核心主題：探索自我與文化的價值。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 目光碎浪 HEADER                          -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="bolulan">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/006%E8%B2%BC%E6%96%87%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.4);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/006%E8%B2%BC%E6%96%87%E5%83%8F%E7%B4%A0.png" alt="">
+  <div class="section-content" style="position:relative;z-index:2;text-align:right;">
+    <div class="chapter-label">貼文</div>
+    <h2 class="chapter-title-large">目光<br>碎浪</h2>
+    <p class="chapter-desc" style="margin-left:auto;">社群媒體上的訊息如碎浪般不斷湧現。注意力渙散的社群環境中，如何讓貼文成為一朵強而有力的浪花，在瞬息間抓住讀者的目光，並引發他們的情感共鳴，是我十分注重的一件事。除此之外，我也期許透過貼文與讀者建立連結，促發互動，讓每個訊息在快速流動的世界裡留下深刻而難忘的印象。</p>
+  </div>
+</section>
+
+<!-- 目光碎浪 CONTENT -->
+<div class="content-section">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">目光碎浪</span>
+      <span class="works-chapter-type">社群貼文</span>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">課程宣傳貼文｜溝通對象：大眾</div>
+      <div class="work-card-title">《彭星凱論設計》宣傳貼文 vol.1</div>
+      <div class="work-card-body">
+        【走進線上藝術學院｜從視覺思考開始，培養行銷敏感度】<br>
+        #彭星凱論設計 #改變觀看視野的思考與實作<br><br>
+        「科學家測量進入大腦的數據量，發現這個時代的每個人，每天處理多達 74 GB 的訊息，相當於 500 年前，一位受過高等教育的人，一輩子接收到的訊息量。」<br><br>
+        在這些爆炸式資訊之中，設計已成為生活中的第二語言。然而許多人或許沒有注意到，方便與精準的視覺圖像也能成為一種制約，若不仔細留意設計中隱含的訊息，每個人都可能在無形中被視覺誘導而未發覺。<br><br>
+        學習設計，其實不只是設計師的專利。<br><br>
+        在工作場域裡，如果你從事行銷企劃相關職位，或是你時常需要和設計師合作，又或者你擁有一間小店、經營自媒體，這堂課能幫助你在視覺圖像的領域中，建立與設計師共同的語言，讓你理解什麼是好的設計、設計作品如何提煉社會的氛圍和共識，並形塑品牌理念和價值。<br><br>
+        在這一門設計課程裡，透過啟發思辨與感知 #培養觀看世界的不同方式。當我們意識到設計中所有佈局都有其意義時，就可以更知道每一個選擇背後，傳遞了什麼訊息，發掘日常生活中未曾注意到的細節，在更敏銳的感覺中培養深度的 #美學鑑賞力，看懂創作者真正想要傳達的理念及核心。<br><br>
+        邀請你一起透過設計，在造型和符號之間，解讀世界隱藏的訊息
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">溝通對象：大眾。第一段以有趣的新知引起受眾興趣及破題，進而提及這堂設計課的助益，並在結尾用一句 Call to action 吸引受眾進一步點擊課程頁面。</div>
+      </div>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">課程宣傳貼文｜溝通對象：初踏入設計工作的創作者</div>
+      <div class="work-card-title">《彭星凱論設計》超早鳥優惠倒數</div>
+      <div class="work-card-body">
+        【彭星凱論設計｜改變觀看視野的思考與實作】<br>
+        #超早鳥優惠倒數2天 #一堂突破框架的設計課<br><br>
+        我們與星凱設計師合作的線上課程，歷時兩年企劃與製作，希望能為圖形設計教育帶來不同的刺激與能量。<br><br>
+        在課程正式發表前的問卷蒐集中，我們發現許多初踏入設計工作的創作者，困擾於無法連結學校所學與業界實務，因此這堂課星凱設計師將分享 #新穎的業界設計思維，並透過 #設計案例解析，以及 #突破性的實作方式，讓你在學習過程中可以逐步掌握核心視覺語言，在達成設計的溝通目的之外，持續創造具有特色的畫面。<br><br>
+        如果你過往在設計時常常沒有靈感，或是感到排版很容易呆板、無趣，這堂課可以協助你看見更多設計的可能性，並有意識地培養策略思考能力與扎實美感鑑賞，也讓你的觀看經驗成為你的風格來源。<br><br>
+        「設計是為人而做的，有多少人，就應該有多少種適合的設計。」星凱老師和我們努力打破既有的框架，屏棄速成的設計公式，也突破線上課程的侷限，希望能創造一個 #線上藝術學院，邀請你走進其中，更深度的理解設計。<br><br>
+        如果我們能看見形狀的個性、聽見顏色的聲音，設計就能長出屬於它的生命力。<br><br>
+        這堂課程目前 #超早鳥優惠 倒數 2 天就會正式結束，誠摯推薦給希望在設計工作中有所突破的所有人。
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">溝通對象：初踏入設計工作的創作者。提出這些設計師在職場可能會遇到的痛點，並呈現這堂課程能為他們帶來的收穫，提醒潛在消費者超早鳥優惠即將結束。</div>
+      </div>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">幕後視角長文貼文</div>
+      <div class="work-card-title">《彭星凱論設計》幕後 vol.1 — 創作意志讓我們在工作中找到平衡</div>
+      <div class="work-card-body">
+        ──「圖形設計不是為了『讓人看見』。在文化上，我們的工作是『紀錄』，在商業上則是『讓人想看』，是一種不知道為什麼就是令人在意的感覺。」摘自《改變觀看視野的思考與實作》<br><br>
+        如果要用行銷企劃的角度來形容這門線上課程，我覺得，這就是一堂製作難度最高、也最難推廣的設計課。<br><br>
+        三次連續十小時馬拉松式的工作坊實境紀錄、七個外景場地的規劃和拍攝、改了 13 個版本的宣傳片、考量鏡位和講課內容的呼應、字斟句酌的文案……「質量不夠好就別做。」每一次和星凱老師的磨合都像考試一樣，在天崩地裂的過程裡苦中作樂。<br><br>
+        後來發現，那些接近瘋狂的細節、對完美的要求，來自星凱老師所捕捉到的、日常難以察覺的感受，這樣的堅持也完整融入在課程裏外被看到的每個環節。即使主題講的是設計，但我覺得也可以應用在任何需要透過「語言」溝通的領域裡，不論是文字、影像、聲音，幾乎所有傳播性質的工作都涉及內容的交換，在最末端的成果被創造之前，都需要經歷「感知、提煉、歸納、整理、重新詮釋」的過程。
+      </div>
+      <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'繼續閱讀 ↓'">繼續閱讀 ↓</button>
+      <div class="expandable">
+        <div class="work-card-body" style="margin-top:1rem;">
+          隨著參與老師拆解、分析事物的這段期間，我漸漸發現自己可以辨認那些過去未曾留意的氛圍、重新感受周遭事物的詩性，捕捉到不以言說傳遞的訊息；發想創意時，需要通靈的情況也變少了。「感知能力」或許就是一種另類的通靈，也是所有創造行為的起點。<br><br>
+          不管是不是設計師，老師都鼓勵大家把意志融入在工作上，這為我帶來了新的工作思維。如果每個人在服務內容時都保有創作者意志，不僅能讓成果更獨特而誠實，我們也更容易在工作中找到屬於自己的平衡，產生自我實現的價值。<br><br>
+          對我來說，這堂課啟動的是一種個人式的學習歷程，線上課程的侷限性真正地被打破了；風格和觀點是從自己身上長出來，是一種更潛移默化、更為深遠的影響。<br><br>
+          不過，這仍然是一堂很難賣的設計課。它不講求速成、不講求效率，不是為了在「三個禮拜內」真的「教會大家什麼」。需要靠生活經驗慢慢地理解和實踐，慢慢地編輯感受、編輯我對事物與對人的認知。<br><br>
+          課程中有許多打動我的時刻，以及滿滿的收穫。學籽的我們就像在釀酒一樣，讓這堂值得被慢慢釀造的設計課，以最好的狀態呈現在大家面前。
+        </div>
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">透過幕後製作團隊的角度，拉近與受眾的距離，分享課程幕後的真實感受與挑戰，讓受眾了解這門課程不僅是傳授知識，更是一個充滿深度的創造性學習過程，為潛在學員帶來更多共鳴和認同感。</div>
+      </div>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">兒童英語戲劇夏令營｜溝通對象：家長</div>
+      <div class="work-card-title">《波波的奇幻旅程》D2 — 種下一顆成長動能的種子</div>
+      <div class="work-card-body">
+        【波波的奇幻旅程 D2】<br><br>
+        在籌備兒童英語戲劇夏令營的時候，我們一直在想，在短短五天的營隊裡面，我們到底可以為小朋友帶來什麼東西？<br><br>
+        課程規劃從戲劇、英語、音樂、舞蹈、手作，一直到最後一天的綜合戲劇展演，我們想要的並不是小朋友可以真的表現出什麼多完美的結果，而是可以從中勇敢地嘗試各種不一樣的東西，並從中獲得一些「什麼」。<br><br>
+        而他們勇敢嘗試的過程，也總是讓我們很感動且備受鼓舞。作為在一旁觀察和紀錄的助教老師，最開心的並不是小朋友展現了多麼了不起的才華，而是他們在小小年紀、面對未知的領域時，儘管會感到害怕，也仍然願意踏出勇敢的一步；以及他們在嘗試的過程中，願意比平時的自己再更努力一點點、更堅持一點點。<br><br>
+        有的小朋友從完全不會英語，在課程中練習了10幾次「piano」的唸法，到下課時一見到媽媽，第一句話就是高興的炫耀「媽媽我今天演小狐狸！我會說 I can play piano！」 有的小朋友在做毛根條手作的時候，那小小的手指一直不聽使喚怎麼做都做不好，頻頻舉手「老師我不會，這好難」，到最後靠自己完成了色彩繽紛的作品。有的小朋友從剛開始內向害羞、只能發出細如蚊蚋的聲音，到後來可以大方的在舞台上伸展肢體。
+      </div>
+      <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'繼續閱讀 ↓'">繼續閱讀 ↓</button>
+      <div class="expandable">
+        <div class="work-card-body" style="margin-top:1rem;">
+          我們相信每個小朋友都有各自的天賦，而我們能做的就是從旁鼓勵他們展開一點點、再展開一點點，就像在手作課程時，儘管材料和方法都一樣，可是每個小朋友都選用了不一樣的顏色、裁剪了不一樣的形狀，創造出他們心中的Gold star，這些小小朋友的作品，質地或許不像藝術家那麼細膩，但我們卻都驚嘆於他們的創意。<br><br>
+          從同一個起點，讓他們長出不同的形狀和樣貌，這就是我們想要的。我們希望創造出一個場域，讓小朋友們可以在多元的藝術領域中，放心的探索、試錯，以及學習，並從老師們的引導、陪伴裡感受到一種安全感，了解「即使一開始做不好也沒有關係，永遠都可以再多嘗試一次、再努力試試看」。<br><br>
+          在短短的五天之中，我們真的沒有辦法讓小朋友學會多麼厲害的技能，但或許教學的重點從來就不是要塞給小朋友多豐富的知識，而是透過一些契機開啟他們自我探索和學習的渴望及動力。就像在每個小朋友的心裡，種下一顆名為「成長動能」的小小的種子，讓這些小朋友可以帶走一些自信、帶走一些成就感、帶走專注做一件事的快樂，讓這個過程可以為他們帶來一點點養分，等待他們未來慢慢的去培養這顆種子，慢慢發芽茁壯，長出我們未曾想像過的花。
+        </div>
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">溝通對象：家長、對營隊有興趣的潛在對象。以助教老師的角度，呈現營隊溫暖的氛圍及理念，讓家長感受到營隊的用心，並透過孩子嘗試與成長的小故事，拉近與家長的情感距離。</div>
+      </div>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">兒童英語戲劇夏令營｜溝通對象：家長、教育工作者</div>
+      <div class="work-card-title">《波波的奇幻旅程》營隊結束</div>
+      <div class="work-card-body">
+        【波波的奇幻旅程 營隊結束】<br><br>
+        第二梯次夏令營圓滿結束，波波的奇幻旅程走到了尾聲，小朋友們在爸爸媽媽面前展現了精彩戲劇展演！短短五天之間，好像有魔法一樣，15位互相不認識、年齡相差許多、英文程度也各不相同的小朋友們，在這個場域裡一起學習、創造、試著展現自我，最終共同完成一場無可取代的演出，每個小朋友都是其中很重要的一部分、每個齒輪都緊密的接在一起。爸爸媽媽們驚訝於短短幾天能有這樣的成果，老師們也深深的被小朋友們的成長所感動。<br><br>
+        混齡教育有其困難性，每個小朋友都像是一顆顆獨特的行星，有著各自的位置和軌跡，因此也更需要依據小朋友們不同的特質給予引導。而在引導這些小朋友時，宜誠老師特別注重「樂在其中」，我們在做這些戲劇、舞蹈、音樂練習時，其實並沒有一個真正的目的地，而是試著去努力的「玩」，放下那些對於結果的執著，丟掉那些習慣和別人比較、分辨優劣的心態，就只是單純的「玩」，並在這些好玩的時刻中，體會自己的身上有哪些事情悄悄的不一樣了。<br><br>
+        宜誠老師常問小朋友：在做這件事的時候，你們覺得好玩嗎？玩「鬼抓人」的時候有沒有需要想？你會不會說「他玩鬼抓人很厲害」？我們在玩的時候最自然而快樂、最純粹而綻放、最貼近本質，於是我們可以試著把這樣的狀態帶進其他事情裡；其實演戲也不需要想，演戲可以是一種自然而然的行動，我們只需要讓自己身在其中，並打開感官去體會就足夠了。當我們放下思考、放棄控制、丟掉對於成果的期待時，最終的成果往往卻超乎我們的想像。<br><br>
+        演出後的座談會上，當我們聽到爸爸媽媽們分享「小朋友每天都玩得很開心」、「小朋友們每天都一直提醒、很期待我們來看演出」時，我們真的很感動，謝謝小朋友們信任我們，可以在這裡玩得這麼開心，在「玩」之中舒展、綻放。
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">溝通對象：家長、對營隊有興趣的潛在對象、教育工作者。展現營隊成果、分享營隊的挑戰與價值，並透過引用家長的反饋，強調孩子們在營隊中的快樂和期待。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 公共地景藝術 HEADER                      -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="xinwen">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/007%E6%96%B0%E8%81%9E%E7%A8%BF%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.5);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/007%E6%96%B0%E8%81%9E%E7%A8%BF%E5%83%8F%E7%B4%A0.png" alt="">
+  <div class="section-content" style="position:relative;z-index:2;">
+    <div class="chapter-label">新聞稿</div>
+    <h2 class="chapter-title-large">公共<br>地景藝術</h2>
+    <p class="chapter-desc">新聞稿彷彿在廣場上公開展示的藝術品，開放、透明、與群眾互動，讓品牌想傳遞的訊息以美麗且清晰的姿態向大眾展現。無論是推廣品牌理念、宣布活動，或是與群眾保持密切聯繫，新聞稿如同出現於城市中的期間限定藝術作品，透過時效性和精確性的文字，快速引發關注。</p>
+  </div>
+</section>
+
+<!-- 公共地景藝術 CONTENT -->
+<div class="content-section">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">公共地景藝術</span>
+      <span class="works-chapter-type">新聞稿</span>
+    </div>
+    <div class="work-card">
+      <div class="work-card-type">演出結束新聞稿</div>
+      <div class="work-card-title">音樂劇《來自山中的聲音》感動衛武營：超越主流價值的溫柔叩問，用山林之音傳遞台灣生命力</div>
+      <div class="work-card-body">
+        國立中山大學原創音樂劇《來自山中的聲音》Revival版於6月21、22日在衛武營戲劇院感動上演，佳評如潮！兩場次超過1300位觀眾在國家級的戲劇院，享受台灣本土的音樂劇盛宴。<br><br>
+        演出以布農族古調拉開序幕，在如敘事般相互呼應的合聲中，彷彿將觀眾帶進那片純樸而美好的山林，緩緩訴說一個關於偏鄉孩子們尋找自我的故事，看見他們的掙扎、迷惘，他們所遇見的價值觀衝突，以及如何從接納中成長。劇中有多元的原創歌曲及舞蹈，分別出自音樂家楊文忻及自由舞者張雅婷之手，並由影像設計師王奕盛重新操刀舞台及影像設計。在整場兩個半小時的演出中，劇組團隊以一種真誠而溫柔的口吻觸動著觀眾，不僅讓觀眾們聽見來自山中的聲音，也聽見自己心底的聲音。<br><br>
+        劇中故事取材於六龜發生的真實故事，這群來自偏鄉孩子們，把布農音樂帶上世界的舞台，在國際大賽勇奪第一，讓世界聽見來自台灣的純淨之音。可是當獎項頒發完畢、謝幕之後，這群孩子未來又去了哪裡？編劇暨導演林宜誠，及詞曲創作者楊文忻抱著這樣的好奇心，帶著劇組團隊走訪山上部落，探尋屬於台灣的美麗故事，紀錄下來、淬鍊成這齣音樂劇。劇中描述的不僅僅是音樂帶來的力量，更是當孩子們回歸日常後，如何在必須面對的社會框架及標籤之中，找回自我的完整性、找到屬於自己的位置。<br><br>
+        導演林宜誠表示，在這個社會上有很多批評的聲音，但批評其實就是拿一個主流的價值觀加諸在每一個獨特的人身上，「因此我更希望每個觀眾看完這齣戲，在感動之餘，更可以試著接納每個人身上不完美的獨特性，接受生活並不是只有唯一的標準定義、每個人都可能採取不同的行動，那麼或許整個社會可以因此成為一個更圓滿的整體、每個不同的人真的可以成為一家人。」<br><br>
+        而教育部長鄭英耀更於演出落幕後上台發表感言，「看到他們的表演，可以感受到台灣年輕人的生命力。聲音是一種世界通用的語言，這群六龜孩子們所擁有的文化和歌聲，不僅是台灣的資產，也是世界的資產。很開心導演在深入探訪後把這個故事寫出來，讓山裡的聲音被全世界聽到。《來自山中的聲音》這個台灣本地的故事，非常的美。」<br><br>
+        《來自山中的聲音》音樂劇圓滿落幕，劇組團隊也收到許多觀眾的好評回饋，觀眾們帶著滿滿的收穫與感觸離開劇場，也希望未來有更多這樣的製作，能將在地故事的感動分享給更多的觀眾。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 丘陵之境 HEADER                          -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="qiuling">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/008%E9%9B%9C%E8%AA%8C%E5%B0%88%E8%A8%AA%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.35);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/008%E9%9B%9C%E8%AA%8C%E5%B0%88%E8%A8%AA%E5%83%8F%E7%B4%A0.png" alt="">
+  <div class="section-content" style="position:relative;z-index:2;">
+    <div class="chapter-label">雜誌與專訪</div>
+    <h2 class="chapter-title-large">丘陵<br>之境</h2>
+    <p class="chapter-desc">雜誌與專訪，如山麓間的柔和地形，聚集著生活的氣息與人群。期望能以細膩的文字，敘述一個又一個關於人的故事，真摯而溫暖。</p>
+  </div>
+</section>
+
+<!-- 丘陵之境 CONTENT -->
+<div class="content-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">丘陵之境</span>
+      <span class="works-chapter-type">雜誌與專訪</span>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">獨立雜誌｜大學時期作品</div>
+      <div class="work-card-title">《一人份》〈文青派：週末的音樂、影像、詩〉</div>
+      <div class="work-card-guide" style="margin-bottom:1.5rem;">
+        <div class="work-card-guide-label">關於這件作品</div>
+        <div class="work-card-guide-text">大學時期與三位夥伴共同製作的雜誌《一人份》，以擁抱一個人的質感生活為主題。我負責篇章〈文青派：週末的音樂、影像、詩〉，從提案規劃、實際走訪、撰稿、拍攝、排版都是由我獨立完成。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1.5rem;">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.001%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.002%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.003%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.004%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.005%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E9%9B%9C%E8%AA%8C%E4%BD%9C%E5%93%81.006%20Large.jpeg" alt="" style="width:100%;filter:grayscale(10%);">
+      </div>
+      <div class="work-card-excerpt">一個人出走的時候，不是約會時的粉紅色，也不是出遊時的天藍色。一個人出走，是把自己變成空白，世界才會走進來。</div>
+      <div class="work-card-body">
+        文青派的一人行旅，讓旅人從溫飽出發，先來到充滿電影氛圍的「特有種商行」，以一碗特製叉燒飯填滿味蕾；接著再前往因設計而生的「不只是圖書館」看看生活能碰撞出的靈感；而緊接著到距離不遠的另一處藏書處「好樣本事」，將獨立書店特有的美學收攬於心；到了夜晚，就讓音樂直搗心靈深處，在「小白兔唱片行」中結束一人的輕旅行。或許，就在街角旁，路燈下，和未曾遇過的自己相遇。
+      </div>
+      <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看完整文章 ↓'">查看完整文章 ↓</button>
+      <div class="expandable">
+        <div class="work-card-body" style="margin-top:1rem;">
+          <strong>特有種商行</strong><br>
+          特有種商行是由魏德聖導演與幕後工作團隊共同策劃的電影咖啡館，位於忠孝新生站附近的巷弄中。室外種植的許多植物營造出一種不被打擾的靜謐，進入店內則可以馬上感受到復古的氛圍，亂中有序的擺設、獨特的古物、舊吉他、老郵筒，許多細節都值得好好賞玩。從店外的盆栽到店內的擺設都是電影中曾出現過的道具，在電影落幕之後就落腳在此，讓人們有個能更接近電影的機會。<br><br>
+          <strong>不只是圖書館</strong><br>
+          開啟對生活的想像力，世界的設計在此相遇。不只是圖書館位於熙攘的松菸文創園區，在熱鬧的「廢棄工廠」裡，提供一個安靜思考的空間，讓讀者看看生活的各種可能性。館內蒐羅超過三萬冊設計相關書籍，從平面、互動，到建築、藝術，許多類型的設計藏書相遇於此，等待被發現，等待被尋找。<br><br>
+          <strong>好樣本事</strong><br>
+          不只收藏書，更收藏美。它是曾經被評為全球最美的 20 間書店。好樣本事在一個只有幾坪的空間裡，經營屬於自己的風格與美好。選書不是一般市面常見的中文書，而是藝術、建築、設計類的書籍，大多是日文，裝幀特別，設計也很好看，十分適合有藏書習慣的讀者前來尋寶。<br><br>
+          <strong>小白兔唱片行</strong><br>
+          最後一站，讓音樂直搗心靈深處。這是一間位於巷弄中的獨立唱片行，它沒有聲色的張狂、沒有高調的喧嘩，更沒有繁華的商業氣息，然而他卻在住宅區中營造出一種舒適和溫馨，讓來自四方的旅人可以完全沈浸在音樂之中。店長說，唱片行存在的目的就是創作者的音樂和樂迷之間的橋樑，在唱片行中最重要的是人與人之間的關係。
+        </div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-card-type">課程宣傳專訪</div>
+      <div class="work-card-title">【專訪】配樂家林孝親：Midi Mockup — 讀懂原廠說明書是關鍵！</div>
+      <div class="work-card-body">
+        Midi Mockup（配器擬真）已是現今音樂產業中不可或缺的一環，透過Midi Mockup模擬樂器的真實樣態，讓製作人和導演可以很直接的看到音樂和影像的互動狀態，大幅降低作曲家和製作方在溝通上的落差。<br><br>
+        為了解Midi Mockup的優勢和限制、背後的技巧和練習時的心法，我們邀請到WinSound Studio紋聲音樂的創辦人——林孝親老師接受訪問。為少數集作曲、編曲、聲音設計、錄音工程專業於一身的配樂家，孝親老師的配樂作品橫跨電影、動畫、電視劇和大型指標性活動，植劇場《五味八珍的歲月》、2017至2019年《國慶日主視覺動畫》配樂皆是出自於他，更曾參與電影《返校》、電玩《逆水寒》、2019總統府音樂會壓軸節目《滅火器-晚安台灣》音樂編曲。<br><br>
+        <strong>做好音樂之前，選對工具就省了一半的時間</strong><br><br>
+        進行Midi Mockup的過程中，選對音源、能了解各個音源的優缺點、該如何疊加使用和調整都是非常重要的。現今許多的音源製作完整、品質優良，且大部分的廠商也會把操作指南(Walkthrough)、Demo影片、音檔、說明書放在官網上，因此消費者在購買之前，就已經可以看到大部分甚至是所有的細節。<br><br>
+        因此孝親老師提到，他常透過官方網站的資訊，思考這個音源將來會不會成為自己創作的工具選項，如果會，就詳細地將這些音源以「音色」、「音質」、「功能」三個方向分類，將來需要使用時便能快速找到最適合的音源，「選對工具其實就省下一半的時間」。<br><br>
+        根據音源開發者不同，使用方式也有差別。如有些軟體是由作曲家背景的開發者研發，可能使用起來很平易近人、符合創作需求，但也許錄音品質就不會太理想；有些軟體是由錄音工程背景的開發者研發，可能音質超棒，但使用不易且調變過程繁複。我們需要多了解手邊的工具，才能從中進行取捨。<br><br>
+        但不論該廠牌音源的強項為何，了解它的優缺點可以幫助我們作出更理想的聲音。於是在各家音源之間可以有不同的排列組合，透過一個音源補強其他音源的缺點，或是疊加在一起使用。這些細節都有助於Midi Mockup更真實、更容易表達作曲家的想法。
+      </div>
+      <div class="work-card-guide">
+        <div class="work-card-guide-label">目光的導引</div>
+        <div class="work-card-guide-text">溝通對象：喜歡音樂、想精進音樂技巧的人。推廣講師的Midi Mockup音樂課程，揭露許多音樂製作背後的技巧、思考方式，讓喜歡音樂的人可以從文章中學習新知識，並呈現講師的專業背景和理念、使讀者對他產生興趣和信任。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 山脊視野 HEADER                          -->
+<!-- ════════════════════════════════════════ -->
+<section class="full-section" id="shanjin">
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/009%E5%AE%A3%E5%82%B3%E8%B7%A8%E9%A0%81%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-overlay" style="background:rgba(0,0,0,0.45);"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/009%E5%AE%A3%E5%82%B3%E8%B7%A8%E9%A0%81%E5%83%8F%E7%B4%A0.png" alt="">
+  <div class="section-content" style="position:relative;z-index:2;">
+    <div class="chapter-label">宣傳跨頁設計／資訊呈現</div>
+    <h2 class="chapter-title-large">山脊<br>視野</h2>
+    <p class="chapter-desc">宣傳跨頁設計與資訊呈現，如山脊般清晰可見、有魄力，快速吸引目光並展示整體輪廓，而後再讓讀者慢慢發覺細節。在撰寫資訊量龐大的文字及設計宣傳跨頁時，我十分注重文字編排的邏輯，讓訊息可以以最清晰易懂的方式被傳遞。在三摺頁DM的設計上，我十分注重翻閱時的體驗，不論怎麼翻摺，視覺上都是連貫且一致的。</p>
+  </div>
+</section>
+
+<!-- 山脊視野 CONTENT -->
+<div class="content-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="works-header">
+      <span class="works-chapter-name">山脊視野</span>
+      <span class="works-chapter-type">宣傳跨頁設計</span>
+    </div>
+
+    <div class="work-card" style="margin-bottom:2rem;">
+      <div class="work-card-type">三摺頁 DM 設計</div>
+      <div class="work-card-title">陳彥宇研究團隊｜傅立葉轉換紅外光譜儀 樣品免費測試</div>
+      <div class="work-card-body" style="margin-bottom:1.5rem;">三摺頁 DM 的視覺設計，不論怎麼翻摺——完全收起、展開一半、完全展開——視覺上都是連貫且一致的。這需要在設計的時候就把跨摺線的視覺元素、色塊、排版方向全部預先規劃好。</div>
+
+      <!-- Interactive Trifold -->
+      <div class="trifold-wrap">
+        <div class="trifold-btns" style="flex-wrap:wrap;">
+          <button class="trifold-btn active" onclick="showDM(0,this)">封面</button>
+          <button class="trifold-btn" onclick="showDM(1,this)">展開一半</button>
+          <button class="trifold-btn" onclick="showDM(2,this)">完全展開</button>
+          <button class="trifold-btn" onclick="showDM(3,this)">背面完全展開</button>
+          <button class="trifold-btn" onclick="showDM(4,this)">背面收起一半</button>
+          <button class="trifold-btn" onclick="showDM(5,this)">背面完全收起</button>
+        </div>
+        <div class="trifold-stage" style="padding:1rem;">
+          <img id="dm-img" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.001.png" style="width:100%;max-width:680px;display:block;margin:0 auto;transition:opacity 0.35s ease;" alt="">
+        </div>
+        <div class="trifold-label" id="dm-lbl">封面</div>
+      </div>
+      <script>
+      (function(){
+        var srcs=["https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.001.png","https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.002.png","https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.003.png","https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.006.png","https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.004.png","https://raw.githubusercontent.com/huyifan9757/portfolio/main/DM%E7%BF%BB%E9%A0%81%E6%95%88%E6%9E%9C.005.png"];
+        var lbls=["封面","展開一半","完全展開","背面完全展開","背面收起一半","背面完全收起"];
+        window.showDM=function(i,btn){
+          document.querySelectorAll('.trifold-btn').forEach(function(b){b.classList.remove('active');});
+          btn.classList.add('active');
+          var img=document.getElementById('dm-img');
+          img.style.opacity='0';
+          setTimeout(function(){img.src=srcs[i];img.style.opacity='1';},200);
+          document.getElementById('dm-lbl').textContent=lbls[i];
+        };
+      })();
+      </script>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 隙 CONTENT -->
+<div class="content-section">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="works-header">
+      <span class="works-chapter-name">字體／Logo 設計</span>
+    </div>
+    <div style="margin-bottom:3rem;">
+      <!-- Logo screenshot placeholder - user needs to host this image -->
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem;letter-spacing:0.05em;">貓空｜裂縫中的陽光｜Music Life｜礦物語 Ore Story｜小房間</p>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:2rem;text-align:center;">
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);">[ 設計作品圖片 — 請將截圖上傳至 Imgur 並替換此處連結 ]</p>
+      </div>
+    </div>
+
+    <div class="works-header" style="margin-top:3rem;">
+      <span class="works-chapter-name">底片攝影</span>
+    </div>
+    <!-- Film photos grid - user needs to host these -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:2rem;">
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+    </div>
+    <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.05em;">↑ 攝影作品需上傳至 Imgur 後替換連結，共9張底片照</p>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">目光的島｜胡藝凡 文字作品集</div>
+  <div class="footer-contact">
+    <p>Tel: 0975660349</p>
+    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c746965757a7d72252b292b5c7b717d7570327f7371">[email&#160;protected]</a></p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── PIXEL GENERATOR ─────────────────────── */
+function setFold(state, btn) {
+  document.querySelectorAll('.trifold-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const p2 = document.getElementById('dm-p2');
+  const p3 = document.getElementById('dm-p3');
+  const fl1 = document.getElementById('fl1');
+  const fl2 = document.getElementById('fl2');
+  const lbl = document.getElementById('fold-label');
+  if (state === 'closed') {
+    p2.style.width = '0'; p3.style.width = '0';
+    fl1.style.opacity = '0'; fl2.style.opacity = '0';
+    lbl.textContent = '封面收起 — 完整視覺';
+  } else if (state === 'half') {
+    p2.style.width = '120px'; p3.style.widt
