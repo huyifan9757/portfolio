@@ -40,37 +40,49 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;displa
 /* COVER */
 #cover{min-height:100vh;}
 .cover-main-title{position:absolute;z-index:3;top:0;left:0;right:0;bottom:0;pointer-events:none;}
-.cover-title-mokuang{position:absolute;top:4rem;left:3rem;font-family:'Gurmukhi MN',var(--serif);font-size:clamp(6rem,12vw,11rem);font-weight:700;line-height:0.9;color:white;text-shadow:4px 4px 0 #111,6px 6px 0 #333;letter-spacing:-0.02em;}
-.cover-title-deshima{position:absolute;bottom:3rem;right:3rem;font-family:'Gurmukhi MN',var(--serif);font-size:clamp(5rem,10vw,9rem);font-weight:700;line-height:0.9;color:white;text-align:right;text-shadow:4px 4px 0 #111,6px 6px 0 #333;letter-spacing:-0.02em;}
-.cover-subtitle{position:absolute;bottom:7rem;left:3.5rem;z-index:3;font-size:0.85rem;line-height:2;color:rgba(255,255,255,0.8);letter-spacing:0.02em;}
-.cover-author{position:absolute;bottom:3.5rem;right:3.5rem;z-index:3;text-align:right;}
-.cover-author-name{font-family:var(--serif);font-size:0.9rem;letter-spacing:0.08em;color:rgba(255,255,255,0.9);}
-.cover-author-sub{font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);writing-mode:vertical-rl;display:inline-block;margin-left:0.5rem;}
+.cover-title-mokuang{position:absolute;top:calc(4rem - 10px);left:calc(3rem + 20px);font-family:'Gurmukhi MN',var(--serif);font-size:clamp(4.8rem,9.6vw,8.8rem);font-weight:400;line-height:calc(1em + 10px);color:white;opacity:0.8;letter-spacing:-0.04em;text-shadow:0 0 30px rgba(255,255,255,0.2);}
+.cover-deshima-group{position:absolute;z-index:3;bottom:calc(3rem - 10px);right:3rem;display:flex;flex-direction:row;align-items:flex-end;gap:20px;}
+.cover-title-deshima{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(4rem,8vw,7.2rem);font-weight:400;line-height:calc(1em + 10px);color:white;text-align:right;opacity:0.8;letter-spacing:-0.04em;text-shadow:0 0 30px rgba(255,255,255,0.2);}
+.cover-subtitle{position:absolute;bottom:calc(7rem - 60px);left:calc(3rem + 90px);z-index:3;font-size:0.85rem;line-height:2;color:rgba(255,255,255,0.8);letter-spacing:0.02em;}
+.cover-author{writing-mode:vertical-rl;text-orientation:mixed;}
+.cover-author-name{font-family:var(--serif);font-size:0.9rem;letter-spacing:0.08em;color:rgba(255,255,255,0.9);display:inline;margin-inline-end:5px;}
+.cover-author-sub{font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);display:inline;}
 
 /* CHAPTER HEADERS */
-.chapter-label{font-size:0.75rem;letter-spacing:0.15em;color:rgba(255,255,255,0.55);text-transform:none;margin-bottom:0.75rem;}
-.chapter-title-large{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(3rem,7vw,6.5rem);font-weight:700;line-height:1;color:white;text-shadow:3px 3px 0 #000;margin-bottom:1.5rem;}
+.chapter-label{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(3rem,4.5vw,4.5rem);font-weight:400;line-height:1;color:rgba(255,255,255,0.8);text-transform:none;margin-bottom:0.5rem;}
+.chapter-title-large{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(2.5rem,3.5vw,3.5rem);font-weight:400;line-height:1;color:rgba(255,255,255,0.55);margin-bottom:1.5rem;}
 .chapter-desc{font-size:0.88rem;line-height:1.95;color:rgba(255,255,255,0.85);max-width:480px;}
 
 /* INTRO SECTION */
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:8rem 4rem 5rem;}
+.intro-content{padding:8rem 4rem 5rem calc(3rem + 90px);}
 .intro-left p{font-family:var(--serif);font-size:0.9rem;line-height:2.1;color:rgba(255,255,255,0.88);margin-bottom:1.2em;}
-.intro-right{}
 .intro-label{font-size:0.7rem;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-bottom:1rem;border-left:2px solid rgba(255,255,255,0.3);padding-left:0.75rem;}
 .about-name{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:0.5rem;}
 .about-sub{font-size:0.78rem;color:rgba(255,255,255,0.65);margin-bottom:1.5rem;line-height:1.7;}
 .about-body{font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.75);margin-bottom:2rem;}
 .contact-block{margin-top:1rem;}
 .contact-item{font-size:0.78rem;color:rgba(255,255,255,0.65);margin-bottom:0.3rem;letter-spacing:0.03em;}
-@media(max-width:768px){.intro-grid{grid-template-columns:1fr;gap:2.5rem;padding:7rem 2rem 4rem;}}
+/* ABOUT BLOCK */
+.about-block{background:#fff;width:100%;padding:60px 4rem;}
+.about-block .intro-label{color:rgba(0,0,0,0.45);border-left-color:rgba(0,0,0,0.2);}
+.about-block .about-name{color:#111;}
+.about-block .about-sub{color:rgba(0,0,0,0.55);}
+.about-block .about-body{color:rgba(0,0,0,0.7);}
+.about-block .about-body p{margin:0 0 calc(1.95em * 1.2) 0;}
+.about-block .about-body p:last-child{margin-bottom:0;}
+.about-block .contact-item{color:rgba(0,0,0,0.55);}
+.about-block .contact-item a{color:rgba(0,0,0,0.55);}
+@media(max-width:768px){.intro-content{padding:7rem 2rem 4rem 2rem;}.about-block{padding:40px 2rem;}}
 
 /* 目光地圖 */
-.map-content{padding:8rem 4rem 5rem;}
-.map-title{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(4rem,9vw,8rem);font-weight:700;color:white;text-shadow:4px 4px 0 #000;margin-bottom:3rem;}
+#map{min-height:100vh;height:100vh;overflow:hidden;}
+#zhanzhao{height:100vh;overflow:hidden;}
+.map-content{padding:4rem;}
+.map-title{font-family:'Gurmukhi MN',var(--serif);font-size:clamp(4rem,9vw,8rem);font-weight:400;color:rgba(255,255,255,0.8);margin-bottom:3rem;line-height:1.1;}
+.map-list-grid{display:flex;gap:40px;margin-left:calc(clamp(4rem,9vw,8rem) - 40px);}
 .map-list{list-style:none;}
-.map-list li{font-family:var(--serif);font-size:clamp(0.9rem,1.8vw,1.1rem);color:rgba(255,255,255,0.8);padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.12);letter-spacing:0.05em;cursor:pointer;transition:color 0.2s;}
-.map-list li:hover{color:white;}
-.map-list li a{color:inherit;text-decoration:none;}
+.map-list li{font-family:var(--serif);font-size:clamp(0.9rem,1.8vw,1.1rem);color:rgba(255,255,255,0.8);padding:0.4rem 0;letter-spacing:0.05em;}
+.map-list span{cursor:default;}
 
 /* CONTENT SECTIONS */
 .content-section{background:#fff;padding:4rem;color:#1a1a1a;}
@@ -79,17 +91,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;displa
 /* WORKS */
 .works-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:3rem;padding-bottom:1rem;border-bottom:1px solid #ddd;}
 .works-chapter-name{font-family:'Gurmukhi MN',var(--serif);font-size:1.4rem;font-weight:500;color:#1a1a1a;}
-.works-chapter-type{font-size:0.75rem;letter-spacing:0.1em;color:#888;}
+.works-chapter-type{font-size:1.125rem;letter-spacing:0.1em;color:#888;}
 .works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
 .work-card{background:#f8f8f8;border:1px solid #e0e0e0;padding:2rem;transition:border-color 0.2s;color:#1a1a1a;}
 .work-card:hover{border-color:#999;}
-.work-card-type{font-size:0.68rem;letter-spacing:0.12em;color:#888;margin-bottom:0.75rem;}
+.work-card-type{font-size:0.82rem;letter-spacing:0.12em;color:#888;margin-bottom:0.75rem;}
 .work-card-title{font-family:'Gurmukhi MN',var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:1rem;line-height:1.4;color:#1a1a1a;}
 .work-card-body{font-size:0.82rem;line-height:1.95;color:#333;margin-bottom:1.25rem;}
 .work-card-guide{margin-top:1rem;padding:1rem;background:#f0f0f0;border-left:2px solid #bbb;}
-.work-card-guide-label{font-size:0.65rem;letter-spacing:0.1em;color:#888;margin-bottom:0.5rem;}
+/* PROCESS CARDS */
+.process-section-label{font-size:0.7rem;letter-spacing:0.15em;color:#aaa;margin-bottom:1rem;}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:3rem;}
+.process-card{background:#444;border-radius:4px;padding:2rem;color:#fff;}
+.process-card-num{font-family:'Gurmukhi MN',var(--serif);font-size:2rem;font-weight:300;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;line-height:1;}
+.process-card-title{font-size:0.88rem;font-weight:500;letter-spacing:0.04em;color:#fff;margin-bottom:0.75rem;}
+.process-card-body{font-size:0.8rem;line-height:1.9;color:rgba(255,255,255,0.6);}
+/* WRITING POSITION */
+.writing-position{margin-bottom:3rem;}
+.writing-position-title{font-family:'Gurmukhi MN',var(--serif);font-size:1rem;font-weight:500;color:#1a1a1a;letter-spacing:0.05em;margin-bottom:0.75rem;}
+.work-card-guide-label{font-size:0.82rem;letter-spacing:0.1em;color:#1a1a1a;margin-bottom:0.5rem;}
 .work-card-guide-text{font-family:var(--serif);font-size:0.82rem;font-style:italic;line-height:1.85;color:#444;}
 .work-card-excerpt{font-family:var(--serif);font-size:0.82rem;line-height:2;color:#444;border-left:2px solid #ccc;padding-left:1rem;margin:1rem 0;}
+.work-card-excerpt p{margin:0 0 0.6em 0;}
+.work-card-excerpt p:last-child{margin-bottom:0;}
 .work-link{display:inline-block;font-size:0.78rem;letter-spacing:0.06em;color:#333;text-decoration:none;border-bottom:1px solid #aaa;padding-bottom:0.1rem;margin-top:0.75rem;transition:color 0.2s,border-color 0.2s;cursor:pointer;}
 .work-link:hover{color:#000;border-color:#000;}
 .work-img{width:100%;height:200px;object-fit:cover;margin-bottom:1.25rem;filter:grayscale(30%);}
@@ -103,7 +127,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;displa
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e0e0e0;margin-bottom:3rem;}
 .stat-block{background:#fff;padding:1.5rem;text-align:center;}
 .stat-block .num{font-family:'Gurmukhi MN',var(--serif);font-size:1.8rem;font-weight:300;display:block;margin-bottom:0.3rem;color:#1a1a1a;}
-.stat-block .lbl{font-size:0.68rem;letter-spacing:0.08em;color:#888;}
+.stat-block .lbl{font-size:1.02rem;letter-spacing:0.08em;color:#888;}
 @media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr);}}
 
 /* 隙 SECTION */
@@ -166,7 +190,13 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
 
   <div class="cover-main-title">
     <div class="cover-title-mokuang">目<br>光</div>
+  </div>
+
+  <div class="cover-deshima-group">
     <div class="cover-title-deshima">的<br>島</div>
+    <div class="cover-author">
+      <span class="cover-author-name">胡藝凡</span><span class="cover-author-sub">文字作品集</span>
+    </div>
   </div>
 
   <div class="cover-subtitle">
@@ -174,11 +204,6 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
     都會產生一個單位的 實體目光<br>
     我們一天所投注的目光疊加起來<br>
     是否可以蓋成一座島嶼？
-  </div>
-
-  <div class="cover-author">
-    <span class="cover-author-name">胡藝凡</span>
-    <span class="cover-author-sub">文字作品集</span>
   </div>
 </section>
 
@@ -190,50 +215,55 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay" style="background:rgba(0,0,0,0.55);"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/002%E4%BB%8B%E7%B4%B9%E9%A0%81%E4%B8%80%E5%83%8F%E7%B4%A0.png" alt="">
 
-  <div class="intro-grid" style="position:relative;z-index:2;width:100%;">
+  <div class="intro-content" style="position:relative;z-index:2;width:100%;">
     <div class="intro-left">
-      <p>在這片島嶼上<br>所見之物形塑了我們</p>
-      <p>我們選擇投注目光的地方<br>傳遞了許多訊息<br>而這些訊息<br>不僅在我們的潛意識中留下痕跡<br>也逐漸影響著我們的思考方式、意念<br>以及未來的每一個選擇</p>
-      <p>於是我們的「目光所及之處」<br>最終也就成為了我們的一部分</p>
-      <p>這本作品集正是我對「目光」的主動定義</p>
-      <br>
-      <p style="font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.7);">作為一位文字工作者，我深知每一個被傳遞的內容都具備潛移默化的影響力，而如何呈現這些訊息將會影響每一位觀者，因此我不僅關注人們的注視之處，更有意識地引導目光，細心地選擇字句、設計每一處細節，並思考如何與讀者的目光產生交集、回應讀者的注視，期許自己能以清醒而溫柔的態度，構築一片溫暖而真摯的世界。</p>
-      <br>
-      <p style="font-size:0.82rem;line-height:1.95;color:rgba(255,255,255,0.7);">這是我過往的工作記錄，一段關於引導、選擇和分享的旅程，其中包含許多不同類型的文字作品，我期望讓這座「島嶼」成為溫暖和善意的傳遞之地，讓我們的目光所及之處，都充滿意義。</p>
-    </div>
-    <div class="intro-right">
-      <div class="intro-label">關於我</div>
-      <div class="about-name">胡藝凡</div>
-      <div class="about-sub">深耕文字超過10年｜政大廣電系畢業</div>
-      <div class="about-body">對於文字的各個領域皆有涉略，擅長撰寫廣告文案、社群貼文、專訪、新聞稿、企劃書、講稿等。擅長洞悉與詮釋，對文字敏銳且富有想像力，能夠協助客戶將想法轉化為具感染力的文案，從文字中建構出氛圍及情感。</div>
-      <div class="contact-block">
-        <div class="intro-label">聯繫我</div>
-        <div class="contact-item">Tel: 0975660349</div>
-        <div class="contact-item">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4ccd1ddcdc2c5ca9d939193e4c3c9c5cdc88ac7cbc9">[email&#160;protected]</a></div>
-      </div>
+      <p>在這片島嶼上，我們所看見的一切，正在慢慢塑造我們</p>
+      <p>我們選擇投注目光的地方，傳遞了許多訊息<br>而這些訊息，不僅在我們的潛意識中留下痕跡<br>也逐漸影響著我們的思考方式、意念，以及未來的每一個選擇</p>
+      <p>於是我們的目光所及之處，最終也就成為了我們的一部分</p>
+      <p>「目光的島」是我對自己創作意識的詮釋<br>我審慎地選擇自己使用的字句<br>讓每個內容，都不愧對讀者的目光</p>
     </div>
   </div>
 </section>
+
+<!-- ABOUT BLOCK -->
+<div class="about-block">
+  <div class="intro-label">關於我</div>
+  <div class="about-name">胡藝凡</div>
+  <div class="about-sub">文字工作者｜內容企劃｜專案管理</div>
+  <div class="about-body"><p>擁有六年工作經驗，從YT頻道內容寫手到課程專案管理，我習慣在「內容怎麼被理解」和「事情怎麼被做出來」之間來回切換。</p><p>從國中開始累積採訪與寫作經驗，不斷打磨自己寫作的語感和節奏，在政大廣電系拓展了影像與設計的語言，對於「如何讓複雜的事情變得容易被吸收」有長期的思考與實踐。</p></div>
+  <div class="contact-block">
+    <div class="intro-label">聯繫我</div>
+    <div class="contact-item">Tel: 0975660349</div>
+    <div class="contact-item">Email: huyifan9757@gmail.com</div>
+  </div>
+</div>
 
 <!-- ════════════════════════════════════════ -->
 <!-- 目光地圖                                  -->
 <!-- ════════════════════════════════════════ -->
 <section class="full-section" id="map">
-  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%BA%95%E5%9C%96%20Large.jpeg');background-size:cover;background-position:top;"></div>
   <div class="bg-overlay" style="background:rgba(0,0,0,0.5);"></div>
-  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%83%8F%E7%B4%A0.png" alt="">
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/004%E7%9B%AE%E9%8C%84%E5%83%8F%E7%B4%A0.png" alt="">
 
   <div class="map-content" style="position:relative;z-index:2;">
-    <div class="map-title">目光<br>地圖</div>
-    <ul class="map-list">
-      <li><a href="#zhanzhao">沿岸步道｜YouTube 講稿</a></li>
-      <li><a href="#wanan">環島海岸線｜文案</a></li>
-      <li><a href="#bolulan">目光碎浪｜社群貼文</a></li>
-      <li><a href="#xinwen">公共地景藝術｜新聞稿</a></li>
-      <li><a href="#qiuling">丘陵之境｜雜誌與專訪</a></li>
-      <li><a href="#shanjin">山脊視野｜宣傳跨頁設計</a></li>
-        <li><a href="#xi">隙</a></li>
-    </ul>
+    <div class="map-title" style="margin-top:80px;margin-left:-40px;">
+      <div>目光</div>
+      <div style="padding-left:1em;">地圖</div>
+    </div>
+    <div class="map-list-grid">
+      <ul class="map-list">
+        <li><span>沿岸步道｜YouTube 講稿</span></li>
+        <li><span>環島海岸線｜文案</span></li>
+        <li><span>目光碎浪｜社群貼文</span></li>
+        <li><span>公共地景藝術｜新聞稿</span></li>
+      </ul>
+      <ul class="map-list">
+        <li><span>丘陵之境｜雜誌與專訪</span></li>
+        <li><span>山脊視野｜宣傳跨頁設計</span></li>
+        <li><span>隙</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -241,15 +271,14 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
 <!-- 沿岸步道 HEADER                          -->
 <!-- ════════════════════════════════════════ -->
 <section class="full-section" id="zhanzhao">
-  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/005%E6%96%87%E6%A1%88%E5%BA%95%E5%9C%96%20Large.jpeg');"></div>
+  <div class="bg-photo" style="background-image:url('https://raw.githubusercontent.com/huyifan9757/portfolio/main/010%E6%B2%BF%E5%B2%B8%E6%AD%A5%E9%81%93%E5%BA%95%E5%9C%96.001%20Large.jpeg');background-position:center 20%;"></div>
   <div class="bg-overlay"></div>
+  <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/010%E6%B2%BF%E5%B2%B8%E6%AD%A5%E9%81%93%E5%83%8F%E7%B4%A0.001.png" alt="">
 
-  <div class="section-content" style="position:relative;z-index:2;">
+  <div class="section-content" style="position:relative;z-index:2;margin-top:calc(-4.5rem - 240px);">
     <div class="chapter-label">沿岸步道</div>
-    <h2 class="chapter-title-large">YouTube<br>講稿</h2>
+    <h2 class="chapter-title-large">YouTube 講稿</h2>
     <p class="chapter-desc">YouTube 講稿像一條沿岸步道。標題是入口的風景，讓人好奇、想往下探索；而步道上的每片地磚，都是我精心設計與整理的資訊，讓人走起來節奏自然、毫不費力，不知不覺走完全程，用最輕鬆的方式，接收到最有幫助的訊息。從短篇文案到長篇腳本，我撰寫的不僅是文字，而是觀看體驗本身。</p>
-    <br>
-    <p class="chapter-desc" style="color:rgba(255,255,255,0.65);font-size:0.8rem;">在決定「怎麼寫」之前，我習慣先問「為什麼要這樣寫」。在編碼的時候，同時模擬解碼的過程，預測讀者在哪個地方會卡住、在哪個地方需要一個畫面來銜接。在資訊和讀者之間，我習慣先成為那個讀者。</p>
   </div>
 </section>
 
@@ -257,7 +286,7 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
 <div class="content-section">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="works-header">
-      <span class="works-chapter-name">沿岸步道</span>
+      <span class="works-chapter-name">沿岸步道<span style="display:inline-block;width:1em;"></span>Youtube講稿</span>
       <span class="works-chapter-type">合作類型：靈異故事、懸疑案件｜2025.09 至今</span>
     </div>
 
@@ -269,9 +298,37 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="stat-block"><span class="num">11萬</span><span class="lbl">單篇最高觀看</span></div>
     </div>
 
-    <div class="feedback-quote">「我覺得你的敘事很流暢，果然是平常有在關注懸疑案件類型影片，我們很少遇到寫手第一次試稿的文章不需要太多修改就可以直接採用的，真的很不簡單。」</div>
+    <div class="writing-position">
+      <div class="writing-position-title">案主回饋</div>
+      <div class="feedback-quote">「我覺得你的敘事很流暢，果然是平常有在關注懸疑案件類型影片，我們很少遇到寫手第一次試稿的文章不需要太多修改就可以直接採用的，真的很不簡單。」</div>
+    </div>
 
-    <p style="font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.04em;margin-bottom:3rem;">凡影片片尾標有「一凡」，即為我撰寫的講稿。</p>
+
+    <!-- 合作流程 -->
+    <div class="writing-position-title">合作流程</div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-card-num">1</div>
+        <div class="process-card-title">拆解主題與建立提問</div>
+        <div class="process-card-body">在撰寫前，先思考觀眾需要哪些認知入口才能真正進入故事——如何為觀眾定位這個空間、如何將事件放入更大的歷史脈絡、這個事件又造成了哪些影響。</div>
+      </div>
+      <div class="process-card">
+        <div class="process-card-num">2</div>
+        <div class="process-card-title">提出大綱</div>
+        <div class="process-card-body">將資訊整理成清晰的敘事結構，設計時想像自己是「什麼都不知道的讀者」，為觀眾鋪出一條知識階梯，盡可能降低理解內容的負擔。</div>
+      </div>
+      <div class="process-card">
+        <div class="process-card-num">3</div>
+        <div class="process-card-title">撰寫講稿</div>
+        <div class="process-card-body">透過鋪陳、懸念與轉折，讓觀眾自然跟著敘事前進。特別注意字詞選擇與行文節奏，合作至今案主幾乎不調整大綱，也不太修改稿件。</div>
+      </div>
+    </div>
+
+    <!-- 寫作者的位置 -->
+    <div class="writing-position">
+      <div class="writing-position-title">寫作者的位置</div>
+      <div class="feedback-quote">在決定「怎麼寫」之前，我習慣先問「為什麼要這樣寫」。在編碼的時候，同時模擬解碼的過程，預測讀者在哪個地方會卡住、在哪個地方需要一個畫面來銜接。<br>在資訊和讀者之間，我習慣先成為那個讀者。</div>
+    </div>
 
     <div class="works-grid" style="grid-template-columns:repeat(2,1fr);">
 
@@ -279,8 +336,12 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="work-card">
         <div class="work-card-type">43,896 次觀看</div>
         <div class="work-card-title">石門十八王公廟</div>
-        <div class="work-card-body">敘述石門十八王公廟的背景故事，及陰廟背後的信仰脈絡和歷史意義。在清代移民渡台的危險處境下，當時的一場船難與忠犬殉葬的事件，促成了十八王公廟的建立，也反映了人們對意外罹難者的憐憫，透過建廟祭祀使亡魂有所歸依。居民開始祭拜後，發現這裡有求必應，陰廟適合求偏財的說法逐漸流傳，恰好遇上大家樂風潮席捲全台，才讓這座廟成為每年香火過億的信仰中心。</div>
-        <div class="work-card-excerpt">陽廟與陰廟除了供奉的對象「是否具有神格」的不同外，陽廟一般會把屋頂挑高、讓光線可以照進整個寺廟，也會有華麗的裝飾，像是龍柱、石獅等，台階數、廟柱和窗戶數目也大多會是屬陽的奇數。而陰廟的廟簷通常都比較低、讓陽光不容易照進廟內，外觀也不會有太多華麗的裝飾，台階數、廟柱、窗戶等也都會是屬陰的偶數。通常在陽廟會選擇燒金紙，而陰廟則是可以燒銀紙，祈求的事物也會不太一樣，通常都認為陰廟適合求「偏財」。</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
+        <div class="work-card-body">敘述石門十八王公廟的背景故事，及陰廟背後的信仰脈絡和歷史意義。在清代移民渡台的危險處境下，當時的一場船難與忠犬殉葬的事件，促成了十八王公廟的建立，也反映了人們對意外罹難者的憐憫，透過建廟祭祀使亡魂有所歸依。<br>居民開始祭拜後，發現這裡有求必應，陰廟適合求偏財的說法逐漸流傳，恰好遇上大家樂風潮席捲全台，才讓這座廟成為每年香火過億的信仰中心。</div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看講稿摘錄 ↓'">查看講稿摘錄 ↓</button>
+        <div class="expandable">
+        <div class="work-card-excerpt"><p>陽廟與陰廟除了供奉的對象「是否具有神格」的不同外，陽廟一般會把屋頂挑高、讓光線可以照進整個寺廟，也會有華麗的裝飾，像是龍柱、石獅等，台階數、廟柱和窗戶數目也大多會是屬陽的奇數。而陰廟的廟簷通常都比較低、讓陽光不容易照進廟內，外觀也不會有太多華麗的裝飾，台階數、廟柱、窗戶等也都會是屬陰的偶數。通常在陽廟會選擇燒金紙，而陰廟則是可以燒銀紙，祈求的事物也會不太一樣，通常都認為陰廟適合求「偏財」。</p><p>在70、80年代，大家樂、六合彩風潮席捲全台灣，許多人都瘋狂地「求明牌」，十八王公廟也在這樣的背景之下迎來了絡繹不絕的人潮。許多人甚至不辭辛勞從中南部包車北上來祈求，據說有許多藝人也都是這裡的常客。在香火最鼎盛的時期，一年的香油錢甚至可以超過一億，酬神戲可以連續演出好幾個月，周末時，從白沙灣到十八王公廟短短六公里的路程，塞車就要耗費兩小時。</p></div>
+        </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
           <div class="work-card-guide-text">在高密度資訊中，管理敘事節奏。故事橫跨移民歷史、民俗文化、社會風潮、企業淵源，這些來自不同知識體系的資料，被整合在同一條敘事線上，每一段回答上一段引發的問題，每個知識點在觀眾剛好需要它的時機出現。</div>
@@ -291,8 +352,12 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="work-card">
         <div class="work-card-type">110,547 次觀看｜2天內達8萬</div>
         <div class="work-card-title">快樂斗煥坪</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
         <div class="work-card-body">以一首流傳多年的當兵順口溜開場，讓觀眾先在腦海裡建立「快樂斗煥坪」的印象，然後用地名由來、軍事歷史、生活細節三個層次鋪陳背景，讓不曾當兵的人也能在心裡想像出那個空間的樣子。等觀眾對這個地方有了具體的畫面，故事才開始轉向，先用真實的人間悲劇讓「快樂」這個標籤鬆動，再帶出兩個營區內的靈異故事。</div>
-        <div class="work-card-excerpt">斗煥坪營區位於苗栗縣頭份市斗煥里199-1號，在頭份市的東側，平原與丘陵的交界處，是一片開闊而平坦的高地。「斗煥坪」這個名字從清朝就使用至今。有一種說法是，嘉慶年間，一名粵人黃祈英進入此地開發，與當地的賽夏族人往來，他後來依當地原住民習俗改名為黃斗乃，這片平地是黃斗乃與原住民交易物品的平地，因此得名「斗換坪」。當時的交易方式很特別，雙方不見面、不說話，賽夏族人會先把鹿皮或山產放在特定的平台上離開，之後漢人再依照自己衡量的價值，把等值的米糧或生活用品擺上去，如果原住民把那些物資取走，才表示這筆交易成立。</div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看講稿摘錄 ↓'">查看講稿摘錄 ↓</button>
+        <div class="expandable">
+        <div class="work-card-excerpt"><p>斗煥坪營區位於苗栗縣頭份市斗煥里199-1號，在頭份市的東側，平原與丘陵的交界處，是一片開闊而平坦的高地。「斗煥坪」這個名字從清朝就使用至今。有一種說法是，嘉慶年間，一名粵人黃祈英進入此地開發，與當地的賽夏族人往來，他後來依當地原住民習俗改名為黃斗乃，這片平地是黃斗乃與原住民交易物品的平地，因此得名「斗換坪」。</p><p>當時的交易方式很特別，雙方不見面、不說話，賽夏族人會先把鹿皮或山產放在特定的平台上離開，之後漢人再依照自己衡量的價值，把等值的米糧或生活用品擺上去，如果原住民把那些物資取走，才表示這筆交易成立。也有一種說法是，「斗換」源自客語意思是對換、倒換，而「坪」則是河階上的平坦高地。不論是哪一種說法都可以看出，這裡從以前就廣闊且平坦，這樣的地形非常適合部隊操課與軍事訓練。</p><p>如果是要去這裡報到的新兵，通常會先搭火車到竹南站，再轉客運或計程車前往營區，距離大約9公里，路程30分鐘。快要抵達營區時，會看見路旁有一所國小，也有著名的斗煥坪水餃館，曾在那邊當兵的人都知道，看到斗煥坪水餃館就代表營區快到了。這裡的宿舍比不少大學寢室還新，靶場只要走路五分鐘就到，伙食更被許多人形容為全陸軍最好吃，甚至每個月還有慶生加菜，也難怪會有「快樂斗煥坪」的說法。</p></div>
+        </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
           <div class="work-card-guide-text">開場選擇從那首順口溜切入，因為它是觀眾對斗煥坪最熟悉的認知入口。從這個共同的起點出發，再透過許多細節描述，讓觀眾能真正走進「斗煥坪」這個平常無法靠近的地方，為觀眾建立一個足以承載故事的世界。</div>
@@ -304,8 +369,12 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="work-card">
         <div class="work-card-type">53,492 次觀看</div>
         <div class="work-card-title">平將門</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
         <div class="work-card-body">從日本獨特的御靈信仰切入，帶出平將門的故事：一位皇室後裔因為領地遭到親族侵佔、一路被逼到舉旗反叛、自號「新皇」，最終兵敗被斬首。他的死標誌著日本權力從貴族轉移到武士階層的歷史轉折。而怨恨讓他死不瞑目，首級在京都睜眼詛咒、升空向東飛去，墜落於今日東京大手町，將門塚由此而來。此後將門塚至今仍屹立在東京商業核心，地價高達40億日圓，寸土寸金卻無人敢動。</div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看講稿摘錄 ↓'">查看講稿摘錄 ↓</button>
+        <div class="expandable">
         <div class="work-card-excerpt">然而平將門「反叛天皇」的怨靈身分，卻始終是皇室心中難以平息的陰影。尤其這座首塚的位置，恰好就在皇居東側，是一個極為敏感、核心的地帶。明治維新後，天皇重新掌握政權，政府從京都遷都江戶，並改名東京。據說明治政府在規劃東京鐵道路網時，故意用「JR山手線」以環狀路線圍繞整座城市，形成一道巨大的「鐵之結界」，象徵著再次「斬斷」將門的身首，讓這位武士首領再也無法凝聚力量起身復仇。</div>
+        </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
           <div class="work-card-guide-text">介紹平將門這個人物之前，先處理了「御靈信仰」的背景，我在背後思考的是：觀眾要認識平將門這個人，需要先具備哪些認知？御靈信仰讓平將門死後持續有影響力——德川家康以他的首塚為中心佈下北斗七星結界，明治政府對他的首塚如履薄冰，不敢輕舉妄動；而平將門的故事，反過來也不斷強化了御靈信仰在日本文化中的份量。把兩者放在一起，才能看見彼此的全貌。</div>
@@ -317,8 +386,12 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="work-card">
         <div class="work-card-type">18,365 次觀看</div>
         <div class="work-card-title">段氏日玲</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
         <div class="work-card-body">從一個瘦得幾乎不成人形的越南新娘被路人發現送醫，帶出段氏日玲長達七個月以上的受虐遭遇、事件緣由和判決結果等，並往外延伸至跨國婚姻的結構性問題：當婚姻被工具化，新移民配偶被視為交易物件，一個自豪於民主與人權的國家，是否真的讓每一個新住民都能被平等對待？</div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看講稿摘錄 ↓'">查看講稿摘錄 ↓</button>
+        <div class="expandable">
         <div class="work-card-excerpt">檢察官稱此案為「台灣之恥」，或許這句話並非僅僅指向施虐者的殘酷行為，而更像是一面鏡子，映照出當時的社會盲點。在90年代，隨著政府大力推動南向政策，大批台資湧入東南亞，經濟往來日益頻繁，這樣的背景也間接促成了跨國婚姻的興盛。然而當婚姻被工具化、商品化，新移民配偶，往往被視為婚姻市場中的「交易物件」，而非一個具備完整人格與尊嚴的生命。段氏日玲的遭遇或許並非毫無徵兆的意外，而是社會漠視與偏見堆疊下的結果。</div>
+        </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
           <div class="work-card-guide-text">面對段氏日玲的遭遇，觀眾最直接的反應往往是憤怒與悲傷，然而我覺得停在這裡還不夠，因此把視角從單一個案往外拉，去問「這個社會發生了什麼事」，試著從個案去看見結構性的問題。在資料處理上，除了網路報導外，我也查詢了判決書，裡面的許多細節都是二手報導難以完整呈現的內容。在處理複雜事件時，我習慣回到最原始的資料來源，確保敘事的真實性。</div>
@@ -338,8 +411,8 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/005%E6%96%87%E6%A1%88%E5%83%8F%E7%B4%A0png.png" alt="">
   <div class="section-content" style="position:relative;z-index:2;">
-    <div class="chapter-label">文案</div>
-    <h2 class="chapter-title-large">環島<br>海岸線</h2>
+    <div class="chapter-label">環島<br>海岸線</div>
+    <h2 class="chapter-title-large">文案</h2>
     <p class="chapter-desc">文案如同環繞整座島嶼的海岸線，有多樣化的風光。對應著不同的產品，文案可以有各式各樣的可能性、能夠觸動不同的客戶群。我認為好的文案不僅能展現產品的特色、魅力與調性，更能為客戶提供了解產品的契機，幫助客戶走向產品。</p>
   </div>
 </section>
@@ -391,6 +464,7 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
         <div class="work-card-type">音樂劇劇作簡介＆海報設計</div>
         <div class="work-card-title">《霧台的迴與疊》2024 原創音樂劇</div>
         <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E6%96%87%E6%A1%88%E4%BD%9C%E5%93%81%EF%BC%BF%E9%9C%A7%E5%8F%B0%E7%9A%84%E8%BF%B4%E8%88%87%E7%96%8A%20%E6%B5%B7%E5%A0%B1%20Large.jpeg" alt="霧台海報" style="width:100%;margin:0.75rem 0;filter:grayscale(15%);">
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
         <div class="work-card-body">刻意遺忘的記憶在心底堆疊成傷痕，壓垮了遠走他鄉的族人，他窮盡一生守著的秘密、那段被山林埋葬的過往，隨著日本人健太的來訪，一層一層被揭開。<br><br>那些被解開的結、被觸動的靈魂，又會書寫出什麼樣的故事？那片山上撐起的，是族人的智慧、是不經意被牽動的緣分，有跨世代的和解、有文化的拾回與再造，也有現代愛情故事。<br><br>在祖靈的懷抱下，那些看似無法釋懷的悲傷，終會在更巨大的愛裡和解，化作層層疊疊、迴盪於山間的餘韻。<br><br>本劇由導演林宜誠與詞曲創作楊文忻，繼音樂劇《來自山中的聲音》衛武營演出後再次攜手合作，以屏東霧台魯凱族文化為素材創作。</div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
@@ -401,10 +475,12 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <div class="work-card">
         <div class="work-card-type">音樂劇劇作介紹＆理念撰寫</div>
         <div class="work-card-title">《來自山中的聲音》</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
         <div class="work-card-body">《來自山中的聲音》是一趟尋找自我的旅程，讓山上和都市的生活化為一種隱喻，把原住民孩子離開部落到都市求生的困境與成長，他們的衝擊、迷惘、衝突與掙扎，以及在同儕的接納之間找回自己的過程，都在劇場裡真誠地呈現。<br><br>故事從一位來到偏鄉的音樂老師開始，在逐漸失去熱情的工作與生活中，他帶著孩子請調到山上學校服務。他吸收著原民文化的內涵，也將都市的氣息帶入部落；當老師慢慢看見了原民文化中純樸的美，他帶著孩子們走出山間、參加合唱比賽。<br><br>然而在孩子們慢慢種下信心的種子時，卻也遇到了未曾想過的挫折、面臨偏鄉與城市之間無形的文化隔閡。對於功成名就的追求，主流價值觀的反噬如同洪水襲來，讓這些山上的孩子迷失。當他們開始重新探索自我的價值，尋找自我的旅程才真正開始。</div>
         <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看創作理念 ↓'">查看創作理念 ↓</button>
         <div class="expandable">
           <div class="work-card-body" style="margin-top:1rem;">藉由這次創作走進原民的生活之中，才發現原民生活文化裡有一種純樸的美，來自於和自然互動而累積的底蘊，如同栽種小米後等待收成的打獵時節、如同在賦予個人義務與歸屬的成年禮。對自然的敬畏、信仰和接納，都轉變成一種生生不息的傳承。<br><br>因此在這齣戲劇中，我們想透過原民的故事帶領大家發現，在每個人生命中，或多或少都會遇見的文化與價值觀碰撞，從彼此不理解，到互相學習、接納的歷程。<br><br>希望這份由全體劇組共同傳達的重要盼望，能成為一種行動，讓社會中所有的個人與群體之間，在相互的關懷中找到共構希望的橋樑。願即將呈現的一切，能成為劇場裡的一道光，溫暖每個人的生命。</div>
+        </div>
         </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
@@ -423,8 +499,8 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay" style="background:rgba(0,0,0,0.4);"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/006%E8%B2%BC%E6%96%87%E5%83%8F%E7%B4%A0.png" alt="">
   <div class="section-content" style="position:relative;z-index:2;text-align:right;">
-    <div class="chapter-label">貼文</div>
-    <h2 class="chapter-title-large">目光<br>碎浪</h2>
+    <div class="chapter-label">目光<br>碎浪</div>
+    <h2 class="chapter-title-large">社群貼文</h2>
     <p class="chapter-desc" style="margin-left:auto;">社群媒體上的訊息如碎浪般不斷湧現。注意力渙散的社群環境中，如何讓貼文成為一朵強而有力的浪花，在瞬息間抓住讀者的目光，並引發他們的情感共鳴，是我十分注重的一件事。除此之外，我也期許透過貼文與讀者建立連結，促發互動，讓每個訊息在快速流動的世界裡留下深刻而難忘的印象。</p>
   </div>
 </section>
@@ -551,8 +627,8 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay" style="background:rgba(0,0,0,0.5);"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/007%E6%96%B0%E8%81%9E%E7%A8%BF%E5%83%8F%E7%B4%A0.png" alt="">
   <div class="section-content" style="position:relative;z-index:2;">
-    <div class="chapter-label">新聞稿</div>
-    <h2 class="chapter-title-large">公共<br>地景藝術</h2>
+    <div class="chapter-label">公共<br>地景藝術</div>
+    <h2 class="chapter-title-large">新聞稿</h2>
     <p class="chapter-desc">新聞稿彷彿在廣場上公開展示的藝術品，開放、透明、與群眾互動，讓品牌想傳遞的訊息以美麗且清晰的姿態向大眾展現。無論是推廣品牌理念、宣布活動，或是與群眾保持密切聯繫，新聞稿如同出現於城市中的期間限定藝術作品，透過時效性和精確性的文字，快速引發關注。</p>
   </div>
 </section>
@@ -587,8 +663,8 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay" style="background:rgba(0,0,0,0.35);"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/008%E9%9B%9C%E8%AA%8C%E5%B0%88%E8%A8%AA%E5%83%8F%E7%B4%A0.png" alt="">
   <div class="section-content" style="position:relative;z-index:2;">
-    <div class="chapter-label">雜誌與專訪</div>
-    <h2 class="chapter-title-large">丘陵<br>之境</h2>
+    <div class="chapter-label">丘陵<br>之境</div>
+    <h2 class="chapter-title-large">雜誌與專訪</h2>
     <p class="chapter-desc">雜誌與專訪，如山麓間的柔和地形，聚集著生活的氣息與人群。期望能以細膩的文字，敘述一個又一個關於人的故事，真摯而溫暖。</p>
   </div>
 </section>
@@ -664,8 +740,8 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div class="bg-overlay" style="background:rgba(0,0,0,0.45);"></div>
   <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/009%E5%AE%A3%E5%82%B3%E8%B7%A8%E9%A0%81%E5%83%8F%E7%B4%A0.png" alt="">
   <div class="section-content" style="position:relative;z-index:2;">
-    <div class="chapter-label">宣傳跨頁設計／資訊呈現</div>
-    <h2 class="chapter-title-large">山脊<br>視野</h2>
+    <div class="chapter-label">山脊<br>視野</div>
+    <h2 class="chapter-title-large">宣傳跨頁設計／資訊呈現</h2>
     <p class="chapter-desc">宣傳跨頁設計與資訊呈現，如山脊般清晰可見、有魄力，快速吸引目光並展示整體輪廓，而後再讓讀者慢慢發覺細節。在撰寫資訊量龐大的文字及設計宣傳跨頁時，我十分注重文字編排的邏輯，讓訊息可以以最清晰易懂的方式被傳遞。在三摺頁DM的設計上，我十分注重翻閱時的體驗，不論怎麼翻摺，視覺上都是連貫且一致的。</p>
   </div>
 </section>
