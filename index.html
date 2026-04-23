@@ -91,7 +91,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;displa
 /* WORKS */
 .works-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:3rem;padding-bottom:1rem;border-bottom:1px solid #ddd;}
 .works-chapter-name{font-family:'Gurmukhi MN',var(--serif);font-size:1.4rem;font-weight:500;color:#1a1a1a;}
-.works-chapter-type{font-size:1.125rem;letter-spacing:0.1em;color:#888;}
+.works-chapter-type{font-family:'Gurmukhi MN',var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:0.1em;color:#888;}
 .works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
 .work-card{background:#f8f8f8;border:1px solid #e0e0e0;padding:2rem;transition:border-color 0.2s;color:#1a1a1a;}
 .work-card:hover{border-color:#999;}
@@ -112,7 +112,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.2rem 2.5rem;displa
 .work-card-guide-label{font-size:0.82rem;letter-spacing:0.1em;color:#1a1a1a;margin-bottom:0.5rem;}
 .work-card-guide-text{font-family:var(--serif);font-size:0.82rem;font-style:italic;line-height:1.85;color:#444;}
 .work-card-excerpt{font-family:var(--serif);font-size:0.82rem;line-height:2;color:#444;border-left:2px solid #ccc;padding-left:1rem;margin:1rem 0;}
-.work-card-excerpt p{margin:0 0 0.6em 0;}
+.work-card-excerpt p{margin:0 0 0.8em 0;}
 .work-card-excerpt p:last-child{margin-bottom:0;}
 .work-link{display:inline-block;font-size:0.78rem;letter-spacing:0.06em;color:#333;text-decoration:none;border-bottom:1px solid #aaa;padding-bottom:0.1rem;margin-top:0.75rem;transition:color 0.2s,border-color 0.2s;cursor:pointer;}
 .work-link:hover{color:#000;border-color:#000;}
@@ -287,7 +287,7 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
   <div style="max-width:1100px;margin:0 auto;">
     <div class="works-header">
       <span class="works-chapter-name">沿岸步道<span style="display:inline-block;width:1em;"></span>Youtube講稿</span>
-      <span class="works-chapter-type">合作類型：靈異故事、懸疑案件｜2025.09 至今</span>
+      <span class="works-chapter-type" style="font-family:var(--sans);font-size:1.02rem;font-weight:400;letter-spacing:0.08em;">合作類型：靈異故事、懸疑案件｜2025.09 至今</span>
     </div>
 
     <!-- Stats -->
@@ -425,66 +425,71 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <span class="works-chapter-type">文案</span>
     </div>
 
-    <div class="work-card" style="margin-bottom:2rem;">
-      <div class="work-card-type">線上課程頁面文案</div>
-      <div class="work-card-title">《彭星凱論設計｜改變觀看視野的思考與實作》</div>
-      <div class="work-card-body">
-        <strong style="display:block;margin-bottom:0.6rem;color:#555;font-size:0.8rem;">六句Slogan介紹課程特色</strong>
-        ・業界最頂標製作規格<br>
-        ・重現藝術學校氛圍，打破線上距離感<br>
-        ・突破創作瓶頸，適合所有人的設計課<br>
-        ・不被工具侷限，掌握核心視覺語言<br>
-        ・四位產業夥伴訪談，一窺設計工作場景<br>
-        ・理解抽象，培養鑒賞力
-      </div>
-      <div class="work-card-body">
-        <strong style="display:block;margin-bottom:0.5rem;color:#555;font-size:0.8rem;">課程介紹</strong>
-        本課程彙整彭星凱設計師20年工作與教學經驗，從視覺風格、商業品牌與文化案例解析，配合豐富實作與新穎的思考方法，訓練扎實的審美鑑賞、設計邏輯和策略能力。並引導學員探索個人獨有的視覺語言，在生活中實踐，讓設計成為表達自我、與世界對話的途徑。
-      </div>
-      <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看課程章節介紹 ↓'">查看課程章節介紹 ↓</button>
-      <div class="expandable">
-        <div class="work-card-body" style="margin-top:1rem;">
-          <strong>第一章《改變觀看視野的設計思考》</strong><br><br>
-          1.圖形設計的概念——風格的歷史與運用：分析國際百年間經典設計，釐清設計的形式與歷史目的。以百年間的經典設計作品，分析從現代、後現代到當代的設計發展潮流及整體氛圍，建構設計時所需要的背景知識，理解設計能成為一項專業的發展基礎、更清晰地看見設計在社會上的意義與本質，包含設計如何回應歷史、形塑世界的觀看方式，及凝聚人的共識。<br><br>
-          2.創作者意志——設計可以是創作嗎？獨特的設計，來自對生活獨特的觀點，建構與眾不同的設計心法。國際品牌削弱設計的創作性以因應跨國市場的多元文化，而台灣品牌面對小眾市場，設計師個人的創作意志，便能很好地為品牌帶來差異化。<br><br>
-          <strong>第二章・上部《讓人想看的版面實作》</strong><br><br>
-          1.看見形狀——從生活環境採樣視覺元素：從生活中觀察與感受，以新方法獲取隨機性的造型靈感。設計師對形狀進行的每一個動作都具有意義，透過實務作品分享，理解設計師如何將抽象的認知聚焦為特定形狀，為詮釋主題創造出不同風格與氣質的造型，刺激觀者感受內容。<br><br>
-          <strong>講師設計作品介紹 節錄</strong><br><br>
-          《物起源於黑，源於虛無》以作者、編輯、設計的多重身份，模糊藝術與設計的界線，封面以手工絹印自白貫穿整體精神。《女兒》書籍透過女體的柔美讓人心生嚮往，抽離人的性格和情慾，呈現神性。《我們一無所有》書籍以抽象圖形表現戰爭的荒蕪，拆下書腰瞬間形成纖細易碎的衝擊。《復仇時代》專輯以英國著名畫作結合3D繪圖，古典的端莊修飾黑金屬音樂的躁動。《台灣啤酒 金牌世大運紀念瓶》於動態中不動，展現安定力量，詮釋運動員從訓練到參賽的精神。《台灣啤酒 春綠瓶身》360度全面向罐身設計，以文學呼應設計、以文字作為主體，呈現剛好的醉度，剛好的春綠。
-        </div>
-      </div>
-      <div class="work-card-guide" style="margin-top:1.5rem;">
-        <div class="work-card-guide-label">目光的導引</div>
-        <div class="work-card-guide-text">以精煉的文字切中消費者痛點，讓消費者迅速瞭解課程價值。善於擷取作品中的精神與亮點，以2-3句話凝鍊作品當中的精神及設計亮點。以分層清晰的結構介紹課程章節，讓讀者瀏覽網頁時能快速抓到整體課程重點，並進一步針對有興趣的單元閱讀。</div>
-      </div>
-    </div>
-
+    <!-- 彭星凱 & 來自山中的聲音：並排兩欄 -->
     <div class="works-grid" style="grid-template-columns:repeat(2,1fr);">
       <div class="work-card">
-        <div class="work-card-type">音樂劇劇作簡介＆海報設計</div>
-        <div class="work-card-title">《霧台的迴與疊》2024 原創音樂劇</div>
-        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E6%96%87%E6%A1%88%E4%BD%9C%E5%93%81%EF%BC%BF%E9%9C%A7%E5%8F%B0%E7%9A%84%E8%BF%B4%E8%88%87%E7%96%8A%20%E6%B5%B7%E5%A0%B1%20Large.jpeg" alt="霧台海報" style="width:100%;margin:0.75rem 0;filter:grayscale(15%);">
-        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
-        <div class="work-card-body">刻意遺忘的記憶在心底堆疊成傷痕，壓垮了遠走他鄉的族人，他窮盡一生守著的秘密、那段被山林埋葬的過往，隨著日本人健太的來訪，一層一層被揭開。<br><br>那些被解開的結、被觸動的靈魂，又會書寫出什麼樣的故事？那片山上撐起的，是族人的智慧、是不經意被牽動的緣分，有跨世代的和解、有文化的拾回與再造，也有現代愛情故事。<br><br>在祖靈的懷抱下，那些看似無法釋懷的悲傷，終會在更巨大的愛裡和解，化作層層疊疊、迴盪於山間的餘韻。<br><br>本劇由導演林宜誠與詞曲創作楊文忻，繼音樂劇《來自山中的聲音》衛武營演出後再次攜手合作，以屏東霧台魯凱族文化為素材創作。</div>
-        <div class="work-card-guide">
+        <div class="work-card-type">線上課程頁面文案</div>
+        <div class="work-card-title">《彭星凱論設計｜改變觀看視野的思考與實作》</div>
+        <div class="work-card-body">
+          <strong style="display:block;margin-bottom:0.6rem;color:#555;font-size:0.8rem;">六句Slogan介紹課程特色</strong>
+          ・業界最頂標製作規格<br>
+          ・重現藝術學校氛圍，打破線上距離感<br>
+          ・突破創作瓶頸，適合所有人的設計課<br>
+          ・不被工具侷限，掌握核心視覺語言<br>
+          ・四位產業夥伴訪談，一窺設計工作場景<br>
+          ・理解抽象，培養鑒賞力
+        </div>
+        <div class="work-card-body">
+          <strong style="display:block;margin-bottom:0.5rem;color:#555;font-size:0.8rem;">課程介紹</strong>
+          本課程彙整彭星凱設計師20年工作與教學經驗，從視覺風格、商業品牌與文化案例解析，配合豐富實作與新穎的思考方法，訓練扎實的審美鑑賞、設計邏輯和策略能力。並引導學員探索個人獨有的視覺語言，在生活中實踐，讓設計成為表達自我、與世界對話的途徑。
+        </div>
+        <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看課程章節介紹 ↓'">查看課程章節介紹 ↓</button>
+        <div class="expandable">
+          <div class="work-card-body" style="margin-top:1rem;">
+            <strong>第一章《改變觀看視野的設計思考》</strong><br><br>
+            1.圖形設計的概念——風格的歷史與運用：分析國際百年間經典設計，釐清設計的形式與歷史目的。以百年間的經典設計作品，分析從現代、後現代到當代的設計發展潮流及整體氛圍，建構設計時所需要的背景知識，理解設計能成為一項專業的發展基礎、更清晰地看見設計在社會上的意義與本質，包含設計如何回應歷史、形塑世界的觀看方式，及凝聚人的共識。<br><br>
+            2.創作者意志——設計可以是創作嗎？獨特的設計，來自對生活獨特的觀點，建構與眾不同的設計心法。國際品牌削弱設計的創作性以因應跨國市場的多元文化，而台灣品牌面對小眾市場，設計師個人的創作意志，便能很好地為品牌帶來差異化。<br><br>
+            <strong>第二章・上部《讓人想看的版面實作》</strong><br><br>
+            1.看見形狀——從生活環境採樣視覺元素：從生活中觀察與感受，以新方法獲取隨機性的造型靈感。設計師對形狀進行的每一個動作都具有意義，透過實務作品分享，理解設計師如何將抽象的認知聚焦為特定形狀，為詮釋主題創造出不同風格與氣質的造型，刺激觀者感受內容。<br><br>
+            <strong>講師設計作品介紹 節錄</strong><br><br>
+            《物起源於黑，源於虛無》以作者、編輯、設計的多重身份，模糊藝術與設計的界線，封面以手工絹印自白貫穿整體精神。《女兒》書籍透過女體的柔美讓人心生嚮往，抽離人的性格和情慾，呈現神性。《我們一無所有》書籍以抽象圖形表現戰爭的荒蕪，拆下書腰瞬間形成纖細易碎的衝擊。《復仇時代》專輯以英國著名畫作結合3D繪圖，古典的端莊修飾黑金屬音樂的躁動。《台灣啤酒 金牌世大運紀念瓶》於動態中不動，展現安定力量，詮釋運動員從訓練到參賽的精神。《台灣啤酒 春綠瓶身》360度全面向罐身設計，以文學呼應設計、以文字作為主體，呈現剛好的醉度，剛好的春綠。
+          </div>
+        </div>
+        <div class="work-card-guide" style="margin-top:1.5rem;">
           <div class="work-card-guide-label">目光的導引</div>
-          <div class="work-card-guide-text">以精煉的語言描繪故事，藉由細膩的語句帶出真摯的情感與畫面感。每句話都經過思考，力求在敘述中保持清晰與節奏感，讓觀眾好奇故事的發展，並讓情感自然地展現在文字之中。</div>
+          <div class="work-card-guide-text">以精煉的文字切中消費者痛點，讓消費者迅速瞭解課程價值。善於擷取作品中的精神與亮點，以2-3句話凝鍊作品當中的精神及設計亮點。以分層清晰的結構介紹課程章節，讓讀者瀏覽網頁時能快速抓到整體課程重點，並進一步針對有興趣的單元閱讀。</div>
         </div>
       </div>
 
       <div class="work-card">
         <div class="work-card-type">音樂劇劇作介紹＆理念撰寫</div>
         <div class="work-card-title">《來自山中的聲音》</div>
-        <div class="work-card-guide-label" style="font-weight:600;">內容簡述</div>
-        <div class="work-card-body">《來自山中的聲音》是一趟尋找自我的旅程，讓山上和都市的生活化為一種隱喻，把原住民孩子離開部落到都市求生的困境與成長，他們的衝擊、迷惘、衝突與掙扎，以及在同儕的接納之間找回自己的過程，都在劇場裡真誠地呈現。<br><br>故事從一位來到偏鄉的音樂老師開始，在逐漸失去熱情的工作與生活中，他帶著孩子請調到山上學校服務。他吸收著原民文化的內涵，也將都市的氣息帶入部落；當老師慢慢看見了原民文化中純樸的美，他帶著孩子們走出山間、參加合唱比賽。<br><br>然而在孩子們慢慢種下信心的種子時，卻也遇到了未曾想過的挫折、面臨偏鄉與城市之間無形的文化隔閡。對於功成名就的追求，主流價值觀的反噬如同洪水襲來，讓這些山上的孩子迷失。當他們開始重新探索自我的價值，尋找自我的旅程才真正開始。</div>
+        <div class="work-card-guide-label" style="font-weight:600;">內容摘錄</div>
+        <div class="work-card-body"><p style="margin:0 0 0.8em 0;">《來自山中的聲音》是一趟尋找自我的旅程，讓山上和都市的生活化為一種隱喻，把原住民孩子離開部落到都市求生的困境與成長，他們的衝擊、迷惘、衝突與掙扎，以及在同儕的接納之間找回自己的過程，都在劇場裡真誠地呈現。</p><p style="margin:0 0 0.8em 0;">故事從一位來到偏鄉的音樂老師開始，在逐漸失去熱情的工作與生活中，他帶著孩子請調到山上學校服務。他吸收著原民文化的內涵，也將都市的氣息帶入部落；當老師慢慢看見了原民文化中純樸的美，他帶著孩子們走出山間、參加合唱比賽。</p><p style="margin:0;">然而在孩子們慢慢種下信心的種子時，卻也遇到了未曾想過的挫折、面臨偏鄉與城市之間無形的文化隔閡。對於功成名就的追求，主流價值觀的反噬如同洪水襲來，讓這些山上的孩子迷失。當他們開始重新探索自我的價值，尋找自我的旅程才真正開始。</p></div>
         <button class="toggle-btn" onclick="var e=this.nextElementSibling;e.classList.toggle('open');this.textContent=e.classList.contains('open')?'收起 ↑':'查看創作理念 ↓'">查看創作理念 ↓</button>
         <div class="expandable">
           <div class="work-card-body" style="margin-top:1rem;">藉由這次創作走進原民的生活之中，才發現原民生活文化裡有一種純樸的美，來自於和自然互動而累積的底蘊，如同栽種小米後等待收成的打獵時節、如同在賦予個人義務與歸屬的成年禮。對自然的敬畏、信仰和接納，都轉變成一種生生不息的傳承。<br><br>因此在這齣戲劇中，我們想透過原民的故事帶領大家發現，在每個人生命中，或多或少都會遇見的文化與價值觀碰撞，從彼此不理解，到互相學習、接納的歷程。<br><br>希望這份由全體劇組共同傳達的重要盼望，能成為一種行動，讓社會中所有的個人與群體之間，在相互的關懷中找到共構希望的橋樑。願即將呈現的一切，能成為劇場裡的一道光，溫暖每個人的生命。</div>
         </div>
-        </div>
         <div class="work-card-guide">
           <div class="work-card-guide-label">目光的導引</div>
           <div class="work-card-guide-text">以條理分明的敘述方式，真誠地呈現出劇作的核心主題：探索自我與文化的價值。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 霧台的迴與疊：圖左文右 -->
+    <div class="work-card" style="margin-top:2rem;">
+      <div class="work-card-type">音樂劇劇作簡介＆海報設計</div>
+      <div class="work-card-title">《霧台的迴與疊》</div>
+      <div style="display:flex;gap:2rem;align-items:flex-start;margin-top:0.75rem;">
+        <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E6%96%87%E6%A1%88%E4%BD%9C%E5%93%81%EF%BC%BF%E9%9C%A7%E5%8F%B0%E7%9A%84%E8%BF%B4%E8%88%87%E7%96%8A%20%E6%B5%B7%E5%A0%B1%20Large.jpeg" alt="霧台海報" style="width:calc(50% - 1rem);flex-shrink:0;filter:grayscale(15%);object-fit:cover;">
+        <div style="flex:1;">
+          <div class="work-card-guide-label" style="font-weight:600;">內容摘錄</div>
+          <div class="work-card-body"><p style="margin:0 0 0.8em 0;">刻意遺忘的記憶在心底堆疊成傷痕，壓垮了遠走他鄉的族人，他窮盡一生守著的秘密、那段被山林埋葬的過往，隨著日本人健太的來訪，一層一層被揭開。</p><p style="margin:0 0 0.8em 0;">那些被解開的結、被觸動的靈魂，又會書寫出什麼樣的故事？那片山上撐起的，是族人的智慧、是不經意被牽動的緣分，有跨世代的和解、有文化的拾回與再造，也有現代愛情故事。</p><p style="margin:0 0 0.8em 0;">在祖靈的懷抱下，那些看似無法釋懷的悲傷，終會在更巨大的愛裡和解，化作層層疊疊、迴盪於山間的餘韻。</p><p style="margin:0;">本劇由導演林宜誠與詞曲創作楊文忻，繼音樂劇《來自山中的聲音》衛武營演出後再次攜手合作，以屏東霧台魯凱族文化為素材創作。</p></div>
+          <div class="work-card-guide">
+            <div class="work-card-guide-label">目光的導引</div>
+            <div class="work-card-guide-text">以精煉的語言描繪故事，藉由細膩的語句帶出真摯的情感與畫面感。每句話都經過思考，力求在敘述中保持清晰與節奏感，讓觀眾好奇故事的發展，並讓情感自然地展現在文字之中。</div>
+          </div>
         </div>
       </div>
     </div>
