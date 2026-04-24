@@ -938,26 +938,39 @@ footer{background:#0A0A0A;border-top:1px solid rgba(255,255,255,0.1);padding:3re
       <span class="works-chapter-name">字體／Logo 設計</span>
     </div>
     <div style="margin-bottom:3rem;">
-      <!-- Logo screenshot placeholder - user needs to host this image -->
-      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem;letter-spacing:0.05em;">貓空｜裂縫中的陽光｜Music Life｜礦物語 Ore Story｜小房間</p>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:2rem;text-align:center;">
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);">[ 設計作品圖片 — 請將截圖上傳至 Imgur 並替換此處連結 ]</p>
-      </div>
+      <img src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/logo%E8%A8%AD%E8%A8%88%E4%BD%9C%E5%93%81.jpg" alt="Logo設計作品" style="width:70%;display:block;margin:0 auto;">
     </div>
 
     <div class="works-header" style="margin-top:3rem;">
       <span class="works-chapter-name">底片攝影</span>
     </div>
-    <!-- Film photos grid - user needs to host these -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:2rem;">
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
-      <div style="aspect-ratio:3/2;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;"><p style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-align:center;">攝影作品<br>待上傳</p></div>
+    <div style="margin-bottom:1.5rem;">
+      <img id="film-img" src="https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B81.jpeg" alt="" style="width:68%;display:block;margin:0 auto;filter:grayscale(10%);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;width:68%;margin-left:auto;margin-right:auto;">
+        <button class="toggle-btn" style="margin-top:0;" onclick="filmNav(-1)">← 上一張</button>
+        <span id="film-counter" style="font-size:0.78rem;color:#888;letter-spacing:0.04em;">1 / 8</span>
+        <button class="toggle-btn" style="margin-top:0;" onclick="filmNav(1)">下一張 →</button>
+      </div>
     </div>
-    <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.05em;">↑ 攝影作品需上傳至 Imgur 後替換連結，共9張底片照</p>
+    <script>
+    (function(){
+      var i=0,imgs=[
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B81.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B82.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B83.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B84.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B85.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B86.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B87.jpeg',
+        'https://raw.githubusercontent.com/huyifan9757/portfolio/main/%E5%A4%A7%E5%BA%95%E7%89%87%E7%B2%BE%E9%81%B88.jpeg'
+      ];
+      window.filmNav=function(d){
+        i=(i+d+imgs.length)%imgs.length;
+        document.getElementById('film-img').src=imgs[i];
+        document.getElementById('film-counter').textContent=(i+1)+' / '+imgs.length;
+      };
+    })();
+    </script>
 
   </div>
 </div>
